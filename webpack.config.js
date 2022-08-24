@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const slsw = require('serverless-webpack');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
@@ -10,6 +11,7 @@ module.exports = {
         extensions: ['.ts', 'tsx', '.js', '.jsx'],
     },
     target: 'node',
+    externals: [nodeExternals()],
     module: {
         rules: [
             {
