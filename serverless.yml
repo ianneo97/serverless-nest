@@ -1,0 +1,37 @@
+service: serverless-nestjs
+
+frameworkVersion: '3'
+
+provider:
+    name: aws
+    runtime: nodejs14.x
+    architecture: arm64
+    region: ap-southeast-1
+    stage: dev
+    logRetentionInDays: 30
+    environment:
+        LOG_LEVEL: ${self:custom.logLevel}
+        AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+
+plugins:
+    - serverless-offline
+    - serverless-webpack
+    - serverless-prune-plugin
+
+functions:
+    - ${file(./resources/functions.yml)}
+
+custom:
+    includeDependencies:
+        enableCaching: true
+    logLevelMap:
+        prod: info
+        staging: info
+    logLevel: ${self:custom.logLevelMap.${sls:stage}, 'debug'}
+    prune:
+        automatic: true
+        number: 2
+
+package:
+    individually: true
+    excludeDevDependencies: false
