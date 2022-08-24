@@ -37,29 +37,6 @@ module.exports = {
                 allowExpressions: true,
             },
         ],
-        '@typescript-eslint/naming-convention': [
-            'error',
-            {
-                selector: 'variableLike',
-                format: ['camelCase'],
-                leadingUnderscore: 'allow',
-            },
-            {
-                selector: 'variable',
-                format: ['camelCase', 'UPPER_CASE'],
-            },
-            {
-                selector: 'variable',
-                types: ['boolean'],
-                format: ['PascalCase'],
-                prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
-            },
-            {
-                selector: 'typeParameter',
-                format: ['PascalCase'],
-                prefix: ['T'],
-            },
-        ],
         'security/detect-object-injection': 'warn',
         'no-var': 'error',
         'no-console': 'warn',
