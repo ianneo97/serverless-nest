@@ -1,8 +1,0 @@
-main:
-    handler: dist/main.js.handler
-    description: Lambda function just for article purposes - to show sls offline
-    memorySize: 256
-    events:
-        - http:
-              method: any
-              path: /{any+}

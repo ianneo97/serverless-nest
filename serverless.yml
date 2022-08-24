@@ -3,18 +3,17 @@ service: nestjs-serverless
 frameworkVersion: '3'
 
 plugins:
-  - serverless-jetpack
-  - serverless-offline
+    - serverless-jetpack
 
 provider:
-  name: aws
-  runtime: nodejs14.x
-  region: ap-southeast-1 # or whatever your region is
+    name: aws
+    runtime: nodejs14.x
+    region: ap-southeast-1 # or whatever your region is
 
 functions:
-  api:
-    handler: dist/lambda.handler
-    events:
-      - http:
-          method: any
-          path: /{proxy+}
+    api:
+        handler: dist/lambda.handler
+        events:
+            - http:
+                  method: any
+                  path: /{proxy+}
