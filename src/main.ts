@@ -1,3 +1,4 @@
+import { HttpExceptionFilter } from './lib/http-exception.filters';
 import { patchNestjsSwagger } from '@anatine/zod-nestjs';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -8,6 +9,7 @@ async function bootstrap(): Promise<void> {
 
     const globalPrefix = 'api';
     app.setGlobalPrefix(globalPrefix);
+    app.useGlobalFilters(new HttpExceptionFilter());
 
     const config = new DocumentBuilder()
         .setTitle('Swagger API')

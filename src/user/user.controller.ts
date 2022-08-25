@@ -1,3 +1,4 @@
+import { UserNotFoundException } from './exception/exceptions';
 import { UserService } from './user.service';
 import { Controller, Get, Inject, Param, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
@@ -24,6 +25,8 @@ export class UserController {
     })
     async findOne(@Param() { id }: { id: string }): Promise<GetUserDto> {
         const response = this.service.findOne(id);
+        console.log('its working!');
+        throw new UserNotFoundException();
 
         this.logger.info('Response', response);
 
