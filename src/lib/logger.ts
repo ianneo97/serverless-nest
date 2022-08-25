@@ -7,7 +7,10 @@ export class Logger implements LoggerService {
 
     private logger = winston.createLogger({
         level: process.env.LOG_LEVEL || 'info',
-        format: winston.format.json(),
+        format: winston.format.combine(
+            winston.format.splat(),
+            winston.format.simple(),
+        ),
         transports: [new winston.transports.Console()],
         defaultMeta: { requestId: this.context.context?.awsRequestId },
     });

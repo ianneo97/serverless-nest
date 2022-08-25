@@ -9,7 +9,7 @@ import { getContext } from '../context';
 import { Logger } from '../logger';
 
 @Catch(HttpException)
-export class HttpExceptionFilter implements ExceptionFilter {
+export class AllExceptionFilter implements ExceptionFilter {
     constructor(private readonly logger: Logger) {}
 
     catch(exception: HttpException, host: ArgumentsHost): void {

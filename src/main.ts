@@ -1,5 +1,5 @@
 import { ExpressAdapter } from '@nestjs/platform-express';
-import { HttpExceptionFilter } from './lib/filters/http-exception.filters';
+import { AllExceptionFilter } from './lib/filters/exception.filters';
 import { patchNestjsSwagger } from '@anatine/zod-nestjs';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -49,7 +49,7 @@ async function bootstrap(): Promise<Handler> {
         );
 
         const DEFAULT_BASE_PREFIX = 'api';
-        nestApp.useGlobalFilters(new HttpExceptionFilter(nestApp.get(Logger)));
+        nestApp.useGlobalFilters(new AllExceptionFilter(nestApp.get(Logger)));
         nestApp.setGlobalPrefix(DEFAULT_BASE_PREFIX);
         nestApp.enableCors();
 
