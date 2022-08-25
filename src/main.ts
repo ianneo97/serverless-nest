@@ -1,5 +1,5 @@
 import { ExpressAdapter } from '@nestjs/platform-express';
-import { HttpExceptionFilter } from './lib/http-exception.filters';
+import { HttpExceptionFilter } from './lib/filters/http-exception.filters';
 import { patchNestjsSwagger } from '@anatine/zod-nestjs';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -14,6 +14,9 @@ import {
 } from 'aws-lambda';
 import { configure as serverlessExpress } from '@vendia/serverless-express';
 import { INestApplication } from '@nestjs/common';
+import { Logger } from './lib/logger';
+import yaml from 'yaml';
+import { writeFileSync } from 'fs';
 
 let cachedServer: Handler;
 
@@ -28,6 +31,12 @@ function setupSwagger(nestApp: INestApplication): void {
 
     const document = SwaggerModule.createDocument(nestApp, config);
 
+    const isServerless = process.env.SERVERLESS_MODE;
+    if (!isServerless) {
+        const ymlString = yaml.stringify(document, {});
+        writeFileSync('./openapi.yml', ymlString);
+    }
+
     SwaggerModule.setup('api', nestApp, document);
 }
 
@@ -37,13 +46,10 @@ async function bootstrap(): Promise<Handler> {
         const nestApp = await NestFactory.create(
             AppModule,
             new ExpressAdapter(expressApp),
-            // {
-            //     logger: new Logger(),
-            // },
         );
 
         const DEFAULT_BASE_PREFIX = 'api';
-        nestApp.useGlobalFilters(new HttpExceptionFilter());
+        nestApp.useGlobalFilters(new HttpExceptionFilter(nestApp.get(Logger)));
         nestApp.setGlobalPrefix(DEFAULT_BASE_PREFIX);
         nestApp.enableCors();
 
@@ -65,15 +71,17 @@ export const handler = async (
     context: Context,
     callback: Callback,
 ): Promise<APIGatewayProxyResult> => {
-    const server = await bootstrap();
-    if (event.path === '/api') {
-        event.path = '/api/';
+    if (!cachedServer) {
+        cachedServer = await bootstrap();
+        if (event.path === '/api') {
+            event.path = '/api/';
+        }
+        event.path = event.path.includes('swagger-ui')
+            ? `/api${event.path}`
+            : event.path;
     }
-    event.path = event.path.includes('swagger-ui')
-        ? `/api${event.path}`
-        : event.path;
 
-    return server(event, context, callback);
+    return cachedServer(event, context, callback);
 };
 
 bootstrap();

@@ -5,10 +5,13 @@ import {
     HttpException,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { getContext } from './context';
+import { getContext } from '../context';
+import { Logger } from '../logger';
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
+    constructor(private readonly logger: Logger) {}
+
     catch(exception: HttpException, host: ArgumentsHost): void {
         const ctx = host.switchToHttp();
         const response = ctx.getResponse<Response>();
@@ -16,11 +19,14 @@ export class HttpExceptionFilter implements ExceptionFilter {
         const status = exception.getStatus();
         const context = getContext();
 
-        response.status(status).json({
+        const error = {
             statusCode: status,
             timestamp: new Date().toISOString(),
             path: request.url,
             requestId: context.context?.awsRequestId || '',
-        });
+        };
+
+        this.logger.error('HttpException', error);
+        response.status(status).json(error);
     }
 }

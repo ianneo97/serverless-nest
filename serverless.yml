@@ -10,6 +10,8 @@ provider:
     name: aws
     runtime: nodejs14.x
     region: ap-southeast-1 # or whatever your region is
+    environment:
+        SERVERLESS_MODE: true
 
 functions:
     api:
