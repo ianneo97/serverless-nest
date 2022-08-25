@@ -2,24 +2,15 @@ import { ZodValidationPipe } from '@anatine/zod-nestjs';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { WinstonModule } from 'nest-winston';
-import winston from 'winston';
 import { APP_PIPE } from '@nestjs/core';
+import { Logger } from './lib/logger';
 
 @Module({
-    imports: [
-        WinstonModule.forRoot({
-            level: process.env.LOG_LEVEL || 'info',
-            format: winston.format.json(),
-            transports: [new winston.transports.Console()],
-        }),
-    ],
-    controllers: [UserController, AppController],
+    imports: [],
+    controllers: [UserController],
     providers: [
         UserService,
-        AppService,
+        Logger,
         { provide: APP_PIPE, useClass: ZodValidationPipe },
     ],
 })

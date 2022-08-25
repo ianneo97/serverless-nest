@@ -37,6 +37,9 @@ async function bootstrap(): Promise<Handler> {
         const nestApp = await NestFactory.create(
             AppModule,
             new ExpressAdapter(expressApp),
+            // {
+            //     logger: new Logger(),
+            // },
         );
 
         const DEFAULT_BASE_PREFIX = 'api';

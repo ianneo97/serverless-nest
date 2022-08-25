@@ -29,7 +29,6 @@
         "@nestjs/swagger": "^6.0.5",
         "@vendia/serverless-express": "^4.10.1",
         "express": "^4.18.1",
-        "nest-winston": "^1.7.0",
         "openapi3-ts": "^2.0.2",
         "reflect-metadata": "^0.1.13",
         "rimraf": "^3.0.2",
