@@ -5,8 +5,7 @@ import {
     HttpException,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { getContext } from '../context';
-import { Logger } from '../logger';
+import { Logger } from '../logger/logger.service';
 
 @Catch(HttpException)
 export class AllExceptionFilter implements ExceptionFilter {
@@ -17,16 +16,14 @@ export class AllExceptionFilter implements ExceptionFilter {
         const response = ctx.getResponse<Response>();
         const request = ctx.getRequest<Request>();
         const status = exception.getStatus();
-        const context = getContext();
 
         const error = {
             statusCode: status,
             timestamp: new Date().toISOString(),
             path: request.url,
-            requestId: context.context?.awsRequestId || '',
         };
 
-        this.logger.error('HttpException', error);
+        this.logger.error(error);
         response.status(status).json(error);
     }
 }

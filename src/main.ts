@@ -1,5 +1,4 @@
 import { ExpressAdapter } from '@nestjs/platform-express';
-import { AllExceptionFilter } from './lib/filters/exception.filters';
 import { patchNestjsSwagger } from '@anatine/zod-nestjs';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -14,7 +13,6 @@ import {
 } from 'aws-lambda';
 import { configure as serverlessExpress } from '@vendia/serverless-express';
 import { INestApplication } from '@nestjs/common';
-import { Logger } from './lib/logger';
 import yaml from 'yaml';
 import { writeFileSync } from 'fs';
 
@@ -49,7 +47,6 @@ async function bootstrap(): Promise<Handler> {
         );
 
         const DEFAULT_BASE_PREFIX = 'api';
-        nestApp.useGlobalFilters(new AllExceptionFilter(nestApp.get(Logger)));
         nestApp.setGlobalPrefix(DEFAULT_BASE_PREFIX);
         nestApp.enableCors();
 
