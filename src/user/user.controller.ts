@@ -1,9 +1,10 @@
 import { UserService } from './user.service';
-import { Controller, Get, Param, UsePipes } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
 import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { GetUserDto } from './dto/user.response';
 import { Logger } from 'src/shared/logger/logger.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('user')
 @UsePipes(ZodValidationPipe)
@@ -21,6 +22,7 @@ export class UserController {
         required: true,
         description: 'User ID',
     })
+    @UseGuards(AuthGuard('jwt'))
     async findOne(@Param() { id }: { id: string }): Promise<GetUserDto> {
         const response = this.service.findOne(id);
 
