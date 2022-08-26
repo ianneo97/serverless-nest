@@ -1,0 +1,43 @@
+Resources:
+  CfOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: 'Access S3 bucket only through the CloudFront distribution'
+
+  WebsiteCfDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+          - DomainName: !GetAtt S3FrontendDeploymentBucket.DomainName
+            Id: !Ref S3FrontendDeploymentBucket
+            S3OriginConfig:
+              OriginAccessIdentity:
+                !Join [
+                  '',
+                  [
+                    'origin-access-identity/cloudfront/',
+                    !Ref CfOriginAccessIdentity,
+                  ],
+                ]
+        DefaultRootObject: index.html
+        Comment: Frontend Distribution (${sls:stage})
+        Enabled: true
+        HttpVersion: http2
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+        DefaultCacheBehavior:
+          TargetOriginId: !Ref S3FrontendDeploymentBucket
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+        # ViewerCertificate:
+        #   AcmCertificateArn: ${self:provider.environment.CLOUDFRONT_WEB_ACM_CERTIFICATE}
+        #   MinimumProtocolVersion: TLSv1.2_2021
+        #   SslSupportMethod: sni-only
+        PriceClass: 'PriceClass_All'

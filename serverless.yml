@@ -3,24 +3,36 @@ service: nestjs-serverless
 frameworkVersion: '3'
 
 plugins:
-    - serverless-jetpack
-    - serverless-plugin-optimize
+  - serverless-jetpack
+  - serverless-plugin-optimize
 
 provider:
-    name: aws
-    runtime: nodejs14.x
-    region: ap-southeast-1 # or whatever your region is
-    environment:
-        SERVERLESS_MODE: true
+  name: aws
+  runtime: nodejs14.x
+  region: ap-southeast-1 # or whatever your region is
+  environment:
+    SERVERLESS_MODE: true
+    LOG_LEVEL: info
+    COGNITO_POOL: ${self:service}-${sls:stage}-pool
+    COGNITO_CLIENT: ${self:service}-${sls:stage}-client
+    S3_BUCKET: ${self:service}-${sls:stage}-bucket
+    S3_FRONTEND_BUCKET: ${self:service}-${sls:stage}-frontend-bucket
+    SKU_DYNAMODB_TABLE: ${self:service}-${sls:stage}-sku-table
+
+resources:
+  - ${file(./resources/cognito.yml)}
+  - ${file(./resources/s3.yml)}
+  - ${file(./resources/cloudfront.yml)}
+  - ${file(./resources/dynamodb.yml)}
 
 functions:
-    api:
-        handler: dist/main.handler
-        events:
-            - http:
-                  method: any
-                  path: /{any+}
+  api:
+    handler: dist/main.handler
+    events:
+      - http:
+          method: any
+          path: /{any+}
 
 custom:
-    optimize:
-        external: ['swagger-ui-dist']
+  optimize:
+    external: ['swagger-ui-dist']
