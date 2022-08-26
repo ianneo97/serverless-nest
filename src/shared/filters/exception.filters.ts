@@ -7,7 +7,7 @@ import {
 import { Request, Response } from 'express';
 import { Logger } from '../logger/logger.service';
 
-@Catch(HttpException)
+@Catch()
 export class AllExceptionFilter implements ExceptionFilter {
     constructor(private readonly logger: Logger) {}
 
@@ -21,6 +21,7 @@ export class AllExceptionFilter implements ExceptionFilter {
             statusCode: status,
             timestamp: new Date().toISOString(),
             path: request.url,
+            error: exception.message,
         };
 
         this.logger.error(error);
