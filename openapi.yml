@@ -1,5 +1,23 @@
 openapi: 3.0.0
-paths: {}
+paths:
+  "/api/user/{id}":
+    get:
+      operationId: UserController_findOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: User ID
+          schema: {}
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetUserDto"
+      tags:
+        - User Module
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -8,4 +26,20 @@ info:
 tags: []
 servers: []
 components:
-  schemas: {}
+  schemas:
+    GetUserDto:
+      type: object
+      properties:
+        provider:
+          type: string
+        external_id:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+      required:
+        - provider
+        - external_id
+        - first_name
+        - last_name
