@@ -19,6 +19,16 @@ provider:
     S3_FRONTEND_BUCKET: ${self:service}-${sls:stage}-frontend-bucket
     SKU_DYNAMODB_TABLE: ${self:service}-${sls:stage}-sku-table
 
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action: 's3:*'
+          Resource: '*'
+        - Effect: 'Allow'
+          Action: 'lambda:*'
+          Resource: '*'
+
 resources:
   - ${file(./resources/cognito.yml)}
   - ${file(./resources/s3.yml)}

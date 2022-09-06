@@ -1,13 +1,13 @@
 openapi: 3.0.0
 paths:
-  "/api/user/{id}":
+  "/api/file/{fileName}":
     get:
-      operationId: UserController_findOne
+      operationId: FileController_generateUploadUrl
       parameters:
-        - name: id
+        - name: fileName
           required: true
           in: path
-          description: User ID
+          description: File Name
           schema: {}
       responses:
         "200":
@@ -15,9 +15,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserDto"
+                $ref: "#/components/schemas/FileUploadResponseDto"
       tags:
-        - User Module
+        - File Module
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -27,19 +27,6 @@ tags: []
 servers: []
 components:
   schemas:
-    GetUserDto:
+    FileUploadResponseDto:
       type: object
-      properties:
-        provider:
-          type: string
-        external_id:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-      required:
-        - provider
-        - external_id
-        - first_name
-        - last_name
+      properties: {}
