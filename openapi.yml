@@ -1,6 +1,6 @@
 openapi: 3.0.0
 paths:
-  "/api/file/{fileName}":
+  "/api/file/upload/{fileName}":
     get:
       operationId: FileController_generateUploadUrl
       parameters:
@@ -15,9 +15,27 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/FileUploadResponseDto"
+                $ref: "#/components/schemas/FileResponseDto"
       tags:
+        &a1
         - File Module
+  "/api/file/download/{fileName}":
+    get:
+      operationId: FileController_generateDownloadUrl
+      parameters:
+        - name: fileName
+          required: true
+          in: path
+          description: File Name
+          schema: {}
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileResponseDto"
+      tags: *a1
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -27,6 +45,12 @@ tags: []
 servers: []
 components:
   schemas:
-    FileUploadResponseDto:
+    FileResponseDto:
       type: object
-      properties: {}
+      properties:
+        fileName:
+          type: string
+        presignedUrl:
+          type: string
+      required:
+        - fileName

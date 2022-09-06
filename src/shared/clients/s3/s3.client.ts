@@ -1,4 +1,8 @@
-import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import {
+    GetObjectCommand,
+    PutObjectCommand,
+    S3Client,
+} from '@aws-sdk/client-s3';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Logger } from 'src/shared/logger/logger.service';
@@ -16,7 +20,7 @@ export class FujikoS3Client {
     client = new S3Client({ region: this.region });
 
     async generateUploadUrl(fileName: string): Promise<string> {
-        const command = new GetObjectCommand({
+        const command = new PutObjectCommand({
             Bucket: this.bucket,
             Key: fileName,
         });
@@ -26,5 +30,16 @@ export class FujikoS3Client {
         return await getSignedUrl(this.client, command, {
             expiresIn: 3600,
         });
+    }
+
+    async generateDownloadUrl(fileName: string): Promise<string> {
+        const command = new GetObjectCommand({
+            Bucket: this.bucket,
+            Key: fileName,
+        });
+
+        this.logger.log({ command });
+
+        return await getSignedUrl(this.client, command, { expiresIn: 3600 });
     }
 }

@@ -1,21 +1,17 @@
 import { Controller, Get, Param, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
 import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
-import { Logger } from 'src/shared/logger/logger.service';
 import { FileService } from './file.service';
-import { FileUploadResponseDto } from './dto/file.upload.response';
+import { FileResponseDto } from './dto/file.upload.response';
 
 @Controller('file')
 @UsePipes(ZodValidationPipe)
 @ApiTags('File Module')
 export class FileController {
-    constructor(
-        private readonly service: FileService,
-        private readonly logger: Logger,
-    ) {}
+    constructor(private readonly service: FileService) {}
 
-    @Get(':fileName')
-    @ApiOkResponse({ type: FileUploadResponseDto })
+    @Get('/upload/:fileName')
+    @ApiOkResponse({ type: FileResponseDto })
     @ApiParam({
         name: 'fileName',
         required: true,
@@ -23,8 +19,23 @@ export class FileController {
     })
     async generateUploadUrl(
         @Param() { fileName }: { fileName: string },
-    ): Promise<FileUploadResponseDto> {
+    ): Promise<FileResponseDto> {
         const response = await this.service.generateUploadUrl(fileName);
+
+        return response;
+    }
+
+    @Get('/download/:fileName')
+    @ApiOkResponse({ type: FileResponseDto })
+    @ApiParam({
+        name: 'fileName',
+        required: true,
+        description: 'File Name',
+    })
+    async generateDownloadUrl(
+        @Param() { fileName }: { fileName: string },
+    ): Promise<FileResponseDto> {
+        const response = await this.service.generateDownloadUrl(fileName);
 
         return response;
     }
