@@ -1,6 +1,13 @@
 import { EventBridgeEvent, S3NotificationEvent } from 'aws-lambda';
 import { getCurrentInvoke } from '@vendia/serverless-express';
-import { PutItemCommand, PutItemCommandOutput } from '@aws-sdk/client-dynamodb';
+import {
+    GetItemCommand,
+    GetItemCommandOutput,
+    PutItemCommand,
+    PutItemCommandOutput,
+    UpdateItemCommand,
+    UpdateItemCommandOutput,
+} from '@aws-sdk/client-dynamodb';
 import { FujikoDynamoClient } from './../shared/clients/dynamodb/dynamodb.client';
 import { FileResponseDto } from './dto/file.upload.response';
 import { Injectable } from '@nestjs/common';
@@ -52,27 +59,69 @@ export class FileService {
         return { fileName: fileName, presignedUrl: url };
     }
 
-    async insertFile(): Promise<PutItemCommandOutput> {
+    async insertFile(): Promise<void> {
         const context = await getCurrentInvoke();
         const event = context.event as S3Notification;
 
         const metadata = event.detail.object.key.split('/');
 
+        const existingSku = await this.getItem(metadata[0]);
+
+        existingSku.Item
+            ? await this.updateItem(metadata[0], metadata[1])
+            : await this.putItem(metadata[0], metadata[1]);
+    }
+
+    private async getItem(id: string): Promise<GetItemCommandOutput> {
+        const command = new GetItemCommand({
+            TableName: process.env.SKU_DYNAMODB_TABLE,
+            Key: {
+                sku_id: { S: id },
+            },
+            ProjectionExpression: 'sku_id, updated_time',
+        });
+
+        return await this.dynamoDbService.query(command);
+    }
+
+    private async putItem(
+        id: string,
+        file: string,
+    ): Promise<PutItemCommandOutput> {
         const command = new PutItemCommand({
             TableName: process.env.SKU_DYNAMODB_TABLE,
             Item: {
-                sku_id: { S: metadata[0] },
-                files: { L: [{ S: metadata[1] }] },
+                sku_id: { S: id },
+                files: { L: [{ S: file }] },
                 created_time: { S: moment().format() },
                 updated_time: { S: moment().format() },
             },
         });
 
-        this.logger.log(command);
+        return await this.dynamoDbService.query(command);
+    }
 
-        const response = await this.dynamoDbService.query(command);
+    private async updateItem(
+        id: string,
+        file: string,
+    ): Promise<UpdateItemCommandOutput> {
+        const command = new UpdateItemCommand({
+            TableName: process.env.SKU_DYNAMODB_TABLE,
+            Key: {
+                sku_id: { S: id },
+            },
+            ExpressionAttributeNames: {
+                '#files': 'files',
+            },
+            ExpressionAttributeValues: {
+                ':file': { L: [{ S: file }] },
+                ':empty_list': { L: [] },
+            },
+            UpdateExpression:
+                'SET #files = list_append(if_not_exists(#files, :empty_list), :file)',
+        });
 
-        return response;
+        return await this.dynamoDbService.query(command);
     }
 
     private validateFileName(fileName: string): void {

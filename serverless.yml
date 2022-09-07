@@ -18,6 +18,7 @@ provider:
     S3_BUCKET: ${self:service}-${sls:stage}-bucket
     S3_FRONTEND_BUCKET: ${self:service}-${sls:stage}-frontend-bucket
     SKU_DYNAMODB_TABLE: ${self:service}-${sls:stage}-sku-table
+    SKU_TIMESTAMP_INDEX_TABLE: ${self:service}-${sls:stage}-sku-timestamp-index-table
 
   iam:
     role:

@@ -1,4 +1,3 @@
-import { ListTablesCommandOutput } from '@aws-sdk/client-dynamodb';
 import { Controller, Get, Param, Post, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
 import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
@@ -43,7 +42,7 @@ export class FileController {
 
     @Post()
     @ApiOkResponse({ type: FileResponseDto })
-    async test(): Promise<ListTablesCommandOutput> {
-        return await this.service.insertFile();
+    async test(): Promise<void> {
+        await this.service.insertFile();
     }
 }
