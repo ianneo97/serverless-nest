@@ -61,7 +61,7 @@ async function bootstrap(): Promise<Handler> {
         cachedServer = serverlessExpress({
             app: expressApp,
             eventSourceRoutes: {
-                AWS_EVENTBRIDGE: '/api/file',
+                AWS_EVENTBRIDGE: '/api/file/event',
             },
         });
     }

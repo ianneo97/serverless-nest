@@ -1,6 +1,11 @@
 import { Controller, Get, Param, Post, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
-import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
+import {
+    ApiExcludeEndpoint,
+    ApiOkResponse,
+    ApiParam,
+    ApiTags,
+} from '@nestjs/swagger';
 import { FileService } from './file.service';
 import {
     FilePresignedResponseDto,
@@ -57,6 +62,7 @@ export class FileController {
     }
 
     @Post()
+    @ApiExcludeEndpoint()
     @ApiOkResponse({ type: FilePresignedResponseDto })
     async onFileUploaded(): Promise<void> {
         await this.service.insertFile();

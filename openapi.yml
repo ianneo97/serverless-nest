@@ -53,18 +53,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/FileResponseDto"
       tags: *a1
-  /api/file:
-    post:
-      operationId: FileController_onFileUploaded
-      parameters: []
-      responses:
-        "200":
-          description: ""
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/FilePresignedResponseDto"
-      tags: *a1
 info:
   title: Swagger API
   description: Swagger APIs for application

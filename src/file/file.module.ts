@@ -1,3 +1,4 @@
+import { FileEventController } from './file.event.controller';
 import { ConfigService } from '@nestjs/config';
 import { FileController } from './file.controller';
 import { Module } from '@nestjs/common';
@@ -7,7 +8,7 @@ import { FileService } from './file.service';
 
 @Module({
     imports: [SharedModule, AuthModule],
-    controllers: [FileController],
+    controllers: [FileController, FileEventController],
     providers: [FileService, ConfigService],
 })
 export class FileModule {}
