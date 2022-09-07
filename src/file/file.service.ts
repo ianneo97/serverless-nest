@@ -2,6 +2,7 @@ import { FileResponseDto } from './dto/file.upload.response';
 import { Injectable } from '@nestjs/common';
 import { FujikoS3Client } from 'src/shared/clients/s3/s3.client';
 import { Logger } from 'src/shared/logger/logger.service';
+import { InvalidFileExtensionException } from './exceptions/file.exceptions';
 
 @Injectable()
 export class FileService {
@@ -11,6 +12,7 @@ export class FileService {
     ) {}
 
     async generateUploadUrl(fileName: string): Promise<FileResponseDto> {
+        this.validateFileName(fileName);
         const url = await this.s3Service.generateUploadUrl(fileName);
 
         this.logger.log({
@@ -22,6 +24,7 @@ export class FileService {
     }
 
     async generateDownloadUrl(fileName: string): Promise<FileResponseDto> {
+        this.validateFileName(fileName);
         const url = await this.s3Service.generateDownloadUrl(fileName);
 
         this.logger.log({
@@ -30,5 +33,13 @@ export class FileService {
         });
 
         return { fileName: fileName, presignedUrl: url };
+    }
+
+    private validateFileName(fileName: string): void {
+        const result = /\.(jpe?g|png)$/i.test(fileName);
+
+        if (!result) {
+            throw new InvalidFileExtensionException();
+        }
     }
 }
