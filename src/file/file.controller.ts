@@ -1,15 +1,11 @@
-import { Controller, Get, Param, Post, UsePipes } from '@nestjs/common';
+import { Controller, Get, Param, Put, Query, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
-import {
-    ApiExcludeEndpoint,
-    ApiOkResponse,
-    ApiParam,
-    ApiTags,
-} from '@nestjs/swagger';
+import { ApiOkResponse, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { FileService } from './file.service';
 import {
     FilePresignedResponseDto,
     FileResponseDto,
+    UpdatedFileResponseDto,
 } from './dto/file.upload.response';
 
 @Controller('file')
@@ -61,10 +57,22 @@ export class FileController {
         return await this.service.getFile(id);
     }
 
-    @Post()
-    @ApiExcludeEndpoint()
-    @ApiOkResponse({ type: FilePresignedResponseDto })
-    async onFileUploaded(): Promise<void> {
-        await this.service.insertFile();
+    @Put(':id')
+    @ApiOkResponse({ type: UpdatedFileResponseDto })
+    @ApiParam({
+        name: 'id',
+        required: true,
+        description: 'File ID',
+    })
+    @ApiQuery({
+        name: 'mainImage',
+        required: true,
+        description: 'Main image to be used for Ximilar API',
+    })
+    async updateMainImage(
+        @Param() { id }: { id: string },
+        @Query() { mainImage }: { mainImage: string },
+    ): Promise<UpdatedFileResponseDto> {
+        return await this.service.updateMainImage(id, mainImage);
     }
 }

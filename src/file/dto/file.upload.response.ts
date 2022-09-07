@@ -6,5 +6,9 @@ export class FilePresignedResponseDto extends createZodDto(
 ) {}
 
 export class FileResponseDto extends createZodDto(
-    FileModel.pick({ sku_id: true, main_file: true }),
+    FileModel.pick({ sku_id: true, main_file: true, updated_time: true }),
+) {}
+
+export class UpdatedFileResponseDto extends createZodDto(
+    FileModel.pick({ sku_id: true, main_file: true, updated_time: true }),
 ) {}

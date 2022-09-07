@@ -21,6 +21,7 @@ import moment from 'moment';
 import {
     FilePresignedResponseDto,
     FileResponseDto,
+    UpdatedFileResponseDto,
 } from './dto/file.upload.response';
 
 interface S3Notification
@@ -76,7 +77,7 @@ export class FileService {
         const existingSku = await this.getItem(metadata[0]);
 
         existingSku.Item
-            ? await this.updateItem(metadata[0], metadata[1])
+            ? await this.updateFileList(metadata[0], metadata[1])
             : await this.putItem(metadata[0], metadata[1]);
     }
 
@@ -90,6 +91,36 @@ export class FileService {
         return {
             sku_id: item.Item?.sku_id?.S,
             main_file: item.Item?.main_file?.S,
+            updated_time: item.Item?.updated_time?.S,
+        };
+    }
+
+    async updateMainImage(
+        id: string,
+        mainFile: string,
+    ): Promise<UpdatedFileResponseDto> {
+        const command = new UpdateItemCommand({
+            TableName: process.env.SKU_DYNAMODB_TABLE,
+            Key: {
+                sku_id: { S: id },
+            },
+            ExpressionAttributeNames: {
+                '#mainFile': 'main_file',
+                '#time': 'updated_time',
+            },
+            ExpressionAttributeValues: {
+                ':main_file': { S: mainFile },
+                ':updated_time': { S: moment().format() },
+            },
+            UpdateExpression: 'SET #mainFile=:main_file, #time = :updated_time',
+        });
+
+        await this.dynamoDbService.query(command);
+
+        return {
+            sku_id: id,
+            main_file: mainFile,
+            updated_time: moment().format(),
         };
     }
 
@@ -99,7 +130,7 @@ export class FileService {
             Key: {
                 sku_id: { S: id },
             },
-            ProjectionExpression: 'sku_id, main_file',
+            ProjectionExpression: 'sku_id, main_file, updated_time',
         });
 
         return await this.dynamoDbService.query(command);
@@ -124,7 +155,7 @@ export class FileService {
         return await this.dynamoDbService.query(command);
     }
 
-    private async updateItem(
+    private async updateFileList(
         id: string,
         file: string,
     ): Promise<UpdateItemCommandOutput> {
@@ -135,13 +166,15 @@ export class FileService {
             },
             ExpressionAttributeNames: {
                 '#files': 'files',
+                '#time': 'updated_time',
             },
             ExpressionAttributeValues: {
                 ':file': { L: [{ S: file }] },
                 ':empty_list': { L: [] },
+                ':updated_time': { S: moment().format() },
             },
             UpdateExpression:
-                'SET #files = list_append(if_not_exists(#files, :empty_list), :file)',
+                'SET #files = list_append(if_not_exists(#files, :empty_list), :file), #time = :updated_time',
         });
 
         return await this.dynamoDbService.query(command);

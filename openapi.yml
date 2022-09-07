@@ -53,6 +53,27 @@ paths:
               schema:
                 $ref: "#/components/schemas/FileResponseDto"
       tags: *a1
+    put:
+      operationId: FileController_updateMainImage
+      parameters:
+        - name: mainImage
+          required: true
+          in: query
+          description: Main image to be used for Ximilar API
+          schema: {}
+        - name: id
+          required: true
+          in: path
+          description: File ID
+          schema: {}
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdatedFileResponseDto"
+      tags: *a1
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -80,5 +101,21 @@ components:
           type: string
         main_file:
           default: image.png
+          type: string
+        updated_time:
+          default: updated_time
+          type: string
+      required: []
+    UpdatedFileResponseDto:
+      type: object
+      properties:
+        sku_id:
+          default: SK 0001
+          type: string
+        main_file:
+          default: image.png
+          type: string
+        updated_time:
+          default: updated_time
           type: string
       required: []
