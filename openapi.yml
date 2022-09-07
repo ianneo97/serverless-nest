@@ -15,7 +15,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/FileResponseDto"
+                $ref: "#/components/schemas/FilePresignedResponseDto"
       tags:
         &a1
         - File Module
@@ -34,12 +34,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/FileResponseDto"
+                $ref: "#/components/schemas/FilePresignedResponseDto"
       tags: *a1
-  /api/file:
-    post:
-      operationId: FileController_test
-      parameters: []
+  "/api/file/{id}":
+    get:
+      operationId: FileController_getFileInfo
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: File ID
+          schema: {}
       responses:
         "200":
           description: ""
@@ -47,6 +52,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/FileResponseDto"
+      tags: *a1
+  /api/file:
+    post:
+      operationId: FileController_onFileUploaded
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FilePresignedResponseDto"
       tags: *a1
 info:
   title: Swagger API
@@ -57,7 +74,7 @@ tags: []
 servers: []
 components:
   schemas:
-    FileResponseDto:
+    FilePresignedResponseDto:
       type: object
       properties:
         fileName:
@@ -65,5 +82,15 @@ components:
           type: string
         presignedUrl:
           default: www.google.com
+          type: string
+      required: []
+    FileResponseDto:
+      type: object
+      properties:
+        sku_id:
+          default: SK 0001
+          type: string
+        main_file:
+          default: image.png
           type: string
       required: []

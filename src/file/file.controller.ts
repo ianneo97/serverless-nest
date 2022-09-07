@@ -2,7 +2,10 @@ import { Controller, Get, Param, Post, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
 import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { FileService } from './file.service';
-import { FileResponseDto } from './dto/file.upload.response';
+import {
+    FilePresignedResponseDto,
+    FileResponseDto,
+} from './dto/file.upload.response';
 
 @Controller('file')
 @UsePipes(ZodValidationPipe)
@@ -11,7 +14,7 @@ export class FileController {
     constructor(private readonly service: FileService) {}
 
     @Get('/upload/:fileName')
-    @ApiOkResponse({ type: FileResponseDto })
+    @ApiOkResponse({ type: FilePresignedResponseDto })
     @ApiParam({
         name: 'fileName',
         required: true,
@@ -19,14 +22,14 @@ export class FileController {
     })
     async generateUploadUrl(
         @Param() { fileName }: { fileName: string },
-    ): Promise<FileResponseDto> {
+    ): Promise<FilePresignedResponseDto> {
         const response = await this.service.generateUploadUrl(fileName);
 
         return response;
     }
 
     @Get('/download/:fileName')
-    @ApiOkResponse({ type: FileResponseDto })
+    @ApiOkResponse({ type: FilePresignedResponseDto })
     @ApiParam({
         name: 'fileName',
         required: true,
@@ -34,15 +37,28 @@ export class FileController {
     })
     async generateDownloadUrl(
         @Param() { fileName }: { fileName: string },
-    ): Promise<FileResponseDto> {
+    ): Promise<FilePresignedResponseDto> {
         const response = await this.service.generateDownloadUrl(fileName);
 
         return response;
     }
 
-    @Post()
+    @Get(':id')
     @ApiOkResponse({ type: FileResponseDto })
-    async test(): Promise<void> {
+    @ApiParam({
+        name: 'id',
+        required: true,
+        description: 'File ID',
+    })
+    async getFileInfo(
+        @Param() { id }: { id: string },
+    ): Promise<FileResponseDto> {
+        return await this.service.getFile(id);
+    }
+
+    @Post()
+    @ApiOkResponse({ type: FilePresignedResponseDto })
+    async onFileUploaded(): Promise<void> {
         await this.service.insertFile();
     }
 }

@@ -9,15 +9,19 @@ import {
     UpdateItemCommandOutput,
 } from '@aws-sdk/client-dynamodb';
 import { FujikoDynamoClient } from './../shared/clients/dynamodb/dynamodb.client';
-import { FileResponseDto } from './dto/file.upload.response';
 import { Injectable } from '@nestjs/common';
 import { FujikoS3Client } from 'src/shared/clients/s3/s3.client';
 import { Logger } from 'src/shared/logger/logger.service';
 import {
+    FileNotFoundException,
     InvalidFileExtensionException,
     InvalidFileNameException,
 } from './exceptions/file.exceptions';
 import moment from 'moment';
+import {
+    FilePresignedResponseDto,
+    FileResponseDto,
+} from './dto/file.upload.response';
 
 interface S3Notification
     extends EventBridgeEvent<
@@ -35,7 +39,9 @@ export class FileService {
         private readonly dynamoDbService: FujikoDynamoClient,
     ) {}
 
-    async generateUploadUrl(fileName: string): Promise<FileResponseDto> {
+    async generateUploadUrl(
+        fileName: string,
+    ): Promise<FilePresignedResponseDto> {
         this.validateFileName(fileName);
         const url = await this.s3Service.generateUploadUrl(fileName);
 
@@ -47,7 +53,9 @@ export class FileService {
         return { fileName: fileName, presignedUrl: url };
     }
 
-    async generateDownloadUrl(fileName: string): Promise<FileResponseDto> {
+    async generateDownloadUrl(
+        fileName: string,
+    ): Promise<FilePresignedResponseDto> {
         this.validateFileName(fileName);
         const url = await this.s3Service.generateDownloadUrl(fileName);
 
@@ -72,13 +80,26 @@ export class FileService {
             : await this.putItem(metadata[0], metadata[1]);
     }
 
+    async getFile(id: string): Promise<FileResponseDto> {
+        const item = await this.getItem(id);
+
+        if (!item.Item) {
+            throw new FileNotFoundException();
+        }
+
+        return {
+            sku_id: item.Item?.sku_id?.S,
+            main_file: item.Item?.main_file?.S,
+        };
+    }
+
     private async getItem(id: string): Promise<GetItemCommandOutput> {
         const command = new GetItemCommand({
             TableName: process.env.SKU_DYNAMODB_TABLE,
             Key: {
                 sku_id: { S: id },
             },
-            ProjectionExpression: 'sku_id, updated_time',
+            ProjectionExpression: 'sku_id, main_file',
         });
 
         return await this.dynamoDbService.query(command);
@@ -87,11 +108,13 @@ export class FileService {
     private async putItem(
         id: string,
         file: string,
+        main_file?: string,
     ): Promise<PutItemCommandOutput> {
         const command = new PutItemCommand({
             TableName: process.env.SKU_DYNAMODB_TABLE,
             Item: {
                 sku_id: { S: id },
+                main_file: { S: main_file },
                 files: { L: [{ S: file }] },
                 created_time: { S: moment().format() },
                 updated_time: { S: moment().format() },
@@ -131,7 +154,7 @@ export class FileService {
             throw new InvalidFileExtensionException();
         }
 
-        if (fileName.split['/'].length !== 1) {
+        if (fileName.split('/').length !== 2) {
             throw new InvalidFileNameException();
         }
     }

@@ -14,3 +14,9 @@ export class InvalidFileNameException extends HttpException {
         );
     }
 }
+
+export class FileNotFoundException extends HttpException {
+    constructor() {
+        super('File does not exist', HttpStatus.NOT_FOUND);
+    }
+}
