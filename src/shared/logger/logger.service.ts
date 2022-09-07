@@ -1,32 +1,51 @@
 import { Injectable, LoggerService, Scope } from '@nestjs/common';
-import winston from 'winston';
-import { getContext } from '../context';
+import { getCurrentInvoke } from '@vendia/serverless-express';
 
+import winston from 'winston';
 @Injectable({ scope: Scope.TRANSIENT })
 export class Logger implements LoggerService {
-    private context = getContext();
-
     private logger = winston.createLogger({
         level: process.env.LOG_LEVEL || 'info',
         transports: [new winston.transports.Console()],
-        defaultMeta: {
-            requestId: this.context.context?.awsRequestId || 'localhost',
-        },
     });
 
     log(message: unknown): void {
-        this.logger.info(message);
+        this.logger.info({
+            message,
+            meta: {
+                requestId:
+                    getCurrentInvoke().context?.awsRequestId || 'localhost',
+            },
+        });
     }
 
     error(message: unknown): void {
-        this.logger.error(message);
+        this.logger.error({
+            message,
+            meta: {
+                requestId:
+                    getCurrentInvoke().context?.awsRequestId || 'localhost',
+            },
+        });
     }
 
     warn(message: unknown): void {
-        this.logger.warn(message);
+        this.logger.warn({
+            message,
+            meta: {
+                requestId:
+                    getCurrentInvoke().context?.awsRequestId || 'localhost',
+            },
+        });
     }
 
     debug(message: unknown): void {
-        this.logger.debug(message);
+        this.logger.debug({
+            message,
+            meta: {
+                requestId:
+                    getCurrentInvoke().context?.awsRequestId || 'localhost',
+            },
+        });
     }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Param, UsePipes } from '@nestjs/common';
+import { Controller, Get, Param, Post, UsePipes } from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
 import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { FileService } from './file.service';
@@ -38,5 +38,13 @@ export class FileController {
         const response = await this.service.generateDownloadUrl(fileName);
 
         return response;
+    }
+
+    @Post()
+    @ApiOkResponse({ type: FileResponseDto })
+    async test(): Promise<string> {
+        // const response = await this.service.generateDownloadUrl(fileName);
+
+        return 'Hello world';
     }
 }

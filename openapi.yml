@@ -36,6 +36,18 @@ paths:
               schema:
                 $ref: "#/components/schemas/FileResponseDto"
       tags: *a1
+  /api/file:
+    post:
+      operationId: FileController_test
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileResponseDto"
+      tags: *a1
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -49,8 +61,9 @@ components:
       type: object
       properties:
         fileName:
+          default: image.png
           type: string
         presignedUrl:
+          default: www.google.com
           type: string
-      required:
-        - fileName
+      required: []

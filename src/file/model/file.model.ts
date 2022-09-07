@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 export const FileModel = extendApi(
     z.object({
-        fileName: z.string(),
-        presignedUrl: z.string().optional(),
+        fileName: z.string().default('image.png'),
+        presignedUrl: z.string().optional().default('www.google.com'),
     }),
 );

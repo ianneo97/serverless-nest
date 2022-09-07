@@ -15,6 +15,7 @@ import { configure as serverlessExpress } from '@vendia/serverless-express';
 import { INestApplication } from '@nestjs/common';
 import yaml from 'yaml';
 import { writeFileSync } from 'fs';
+import { ConfigService } from '@nestjs/config';
 
 let cachedServer: Handler;
 
@@ -50,13 +51,18 @@ async function bootstrap(): Promise<Handler> {
         nestApp.setGlobalPrefix(DEFAULT_BASE_PREFIX);
         nestApp.enableCors();
 
+        const configService = nestApp.get(ConfigService);
+
         setupSwagger(nestApp);
 
         await nestApp.init();
-        await nestApp.listen(3000);
+        await nestApp.listen(configService.get('app.port'));
 
         cachedServer = serverlessExpress({
             app: expressApp,
+            eventSourceRoutes: {
+                AWS_EVENTBRIDGE: '/api/file',
+            },
         });
     }
 

@@ -28,6 +28,9 @@ provider:
         - Effect: 'Allow'
           Action: 'lambda:*'
           Resource: '*'
+        - Effect: 'Allow'
+          Action: 'dynamodb:*'
+          Resource: '*'
 
 resources:
   - ${file(./resources/cognito.yml)}
@@ -42,6 +45,14 @@ functions:
       - http:
           method: any
           path: /{any+}
+      - eventBridge:
+          pattern:
+            source:
+              - aws.s3
+            detail:
+              bucket:
+                name:
+                  - ${self:provider.environment.S3_BUCKET}
 
 custom:
   optimize:

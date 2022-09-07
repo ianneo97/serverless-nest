@@ -3,6 +3,9 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: ${self:provider.environment.S3_BUCKET}
+      NotificationConfiguration:
+        EventBridgeConfiguration:
+          EventBridgeEnabled: true
       CorsConfiguration:
         CorsRules:
           - AllowedMethods:

@@ -7,7 +7,7 @@ import {
 import { Request, Response } from 'express';
 import { Logger } from '../logger/logger.service';
 
-@Catch()
+@Catch(HttpException)
 export class AllExceptionFilter implements ExceptionFilter {
     constructor(private readonly logger: Logger) {}
 
