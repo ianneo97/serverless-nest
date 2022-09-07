@@ -7,6 +7,10 @@ Resources:
       KeySchema:
         - AttributeName: sku_id
           KeyType: HASH
+        - AttributeName: updated_time
+          KeyType: RANGE
       AttributeDefinitions:
         - AttributeName: sku_id
+          AttributeType: S
+        - AttributeName: updated_time
           AttributeType: S

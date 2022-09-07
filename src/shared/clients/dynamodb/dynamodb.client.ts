@@ -1,7 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Logger } from 'src/shared/logger/logger.service';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import {
+    DynamoDBClient,
+    ServiceInputTypes,
+    ServiceOutputTypes,
+} from '@aws-sdk/client-dynamodb';
+import { Command, HttpHandlerOptions } from '@aws-sdk/types';
+import { SmithyResolvedConfiguration } from '@aws-sdk/smithy-client';
 
 @Injectable()
 export class FujikoDynamoClient {
@@ -13,7 +19,19 @@ export class FujikoDynamoClient {
     region = this.config.get('app.region');
     client = new DynamoDBClient({ region: this.region });
 
-    async query(command: never): Promise<unknown> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async query<
+        InputType extends ServiceInputTypes,
+        OutputType extends ServiceOutputTypes,
+    >(
+        command: Command<
+            ServiceInputTypes,
+            InputType,
+            ServiceOutputTypes,
+            OutputType,
+            SmithyResolvedConfiguration<HttpHandlerOptions>
+        >,
+    ): Promise<OutputType> {
         const response = await this.client.send(command);
 
         return response;
