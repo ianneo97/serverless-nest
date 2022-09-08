@@ -19,7 +19,6 @@ export class FujikoDynamoClient {
     region = this.config.get('app.region');
     client = new DynamoDBClient({ region: this.region });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async query<
         InputType extends ServiceInputTypes,
         OutputType extends ServiceOutputTypes,
@@ -32,9 +31,8 @@ export class FujikoDynamoClient {
             SmithyResolvedConfiguration<HttpHandlerOptions>
         >,
     ): Promise<OutputType> {
-        this.logger.log(command);
-        const response = await this.client.send(command);
+        this.logger.log({ command: command });
 
-        return response;
+        return await this.client.send(command);
     }
 }

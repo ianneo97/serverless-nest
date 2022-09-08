@@ -139,13 +139,11 @@ export class FileService {
     private async putItem(
         id: string,
         file: string,
-        main_file?: string,
     ): Promise<PutItemCommandOutput> {
         const command = new PutItemCommand({
             TableName: process.env.SKU_DYNAMODB_TABLE,
             Item: {
                 sku_id: { S: id },
-                main_file: { S: main_file },
                 files: { L: [{ S: file }] },
                 created_time: { S: moment().format() },
                 updated_time: { S: moment().format() },
