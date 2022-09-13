@@ -1,31 +1,32 @@
 openapi: 3.0.0
 paths:
-  "/api/file/upload/{fileName}":
-    get:
-      operationId: FileController_generateUploadUrl
-      parameters:
-        - name: fileName
-          required: true
-          in: path
-          description: File Name
-          schema: {}
+  /api/file/upload:
+    post:
+      operationId: FileController_uploadFile
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
       responses:
-        "200":
+        "201":
           description: ""
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/FilePresignedResponseDto"
       tags:
         &a1
         - File Module
-  "/api/file/download/{fileName}":
+  /api/file/download:
     get:
       operationId: FileController_generateDownloadUrl
       parameters:
         - name: fileName
           required: true
-          in: path
+          in: query
           description: File Name
           schema: {}
       responses:
@@ -74,6 +75,25 @@ paths:
               schema:
                 $ref: "#/components/schemas/UpdatedFileResponseDto"
       tags: *a1
+  /api/integration/ximilar/detect:
+    post:
+      operationId: IntegrationController_detectTags
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/XimilarRequest"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/XimilarResponse"
+      tags:
+        - Integration Module
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -119,3 +139,398 @@ components:
           default: updated_time
           type: string
       required: []
+    XimilarRequest:
+      type: object
+      properties:
+        records:
+          type: array
+          items:
+            type: object
+            properties:
+              _url:
+                type: string
+              Top Category:
+                type: string
+              Category:
+                type: string
+            required:
+              - _url
+              - Top Category
+              - Category
+      required:
+        - records
+    XimilarResponse:
+      type: object
+      properties:
+        records:
+          type: array
+          items:
+            type: object
+            properties:
+              _url:
+                type: string
+              Top Category:
+                type: string
+              _status:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  text:
+                    type: string
+                  request_id:
+                    type: string
+                required:
+                  - code
+                  - text
+                  - request_id
+              _id:
+                type: string
+              _width:
+                type: number
+              _height:
+                type: number
+              _objects:
+                type: array
+                items:
+                  oneOf:
+                    - type: object
+                      properties:
+                        name:
+                          type: string
+                        id:
+                          type: string
+                        bound_box:
+                          type: array
+                          items:
+                            type: number
+                        prob:
+                          type: number
+                        area:
+                          type: number
+                        expand_by_bound_box:
+                          type: array
+                          items:
+                            type: number
+                        Top Category:
+                          type: string
+                        Category:
+                          type: string
+                        pre-filled:
+                          type: boolean
+                        _tags:
+                          type: object
+                          properties:
+                            Category:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  prob:
+                                    type: number
+                                  id:
+                                    type: string
+                                  pre-filled:
+                                    type: boolean
+                                required:
+                                  - name
+                                  - prob
+                                  - id
+                                  - pre-filled
+                            Color:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Style:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Subcategory:
+                              type: array
+                              items:
+                                oneOf:
+                                  - type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                      prob:
+                                        type: number
+                                    required:
+                                      - name
+                                      - prob
+                                  - type: object
+                                    properties:
+                                      prob:
+                                        type: number
+                                      name:
+                                        type: string
+                                      id:
+                                        type: string
+                                    required:
+                                      - prob
+                                      - name
+                                      - id
+                            Gender:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Material:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Length:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Fit:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Age:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Design:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Pattern:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Rise:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  prob:
+                                    type: number
+                                  name:
+                                    type: string
+                                  id:
+                                    type: string
+                                required:
+                                  - prob
+                                  - name
+                                  - id
+                            Top Category:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  prob:
+                                    type: number
+                                  id:
+                                    type: string
+                                  pre-filled:
+                                    type: boolean
+                                required:
+                                  - name
+                                  - prob
+                                  - id
+                                  - pre-filled
+                          required:
+                            - Category
+                            - Color
+                            - Style
+                            - Subcategory
+                            - Gender
+                            - Material
+                            - Length
+                            - Fit
+                            - Age
+                            - Design
+                            - Pattern
+                            - Rise
+                            - Top Category
+                        _tags_simple:
+                          type: array
+                          items:
+                            type: string
+                      required:
+                        - name
+                        - id
+                        - bound_box
+                        - prob
+                        - area
+                        - expand_by_bound_box
+                        - Top Category
+                        - Category
+                        - pre-filled
+                        - _tags
+                        - _tags_simple
+                    - type: object
+                      properties:
+                        name:
+                          type: string
+                        id:
+                          type: string
+                        bound_box:
+                          type: array
+                          items:
+                            type: number
+                        prob:
+                          type: number
+                        area:
+                          type: number
+                        expand_by_bound_box:
+                          type: array
+                          items:
+                            type: number
+                        Top Category:
+                          type: string
+                        Category:
+                          type: string
+                      required:
+                        - name
+                        - id
+                        - bound_box
+                        - prob
+                        - area
+                        - expand_by_bound_box
+                        - Top Category
+                        - Category
+            required:
+              - _url
+              - Top Category
+              - _status
+              - _id
+              - _width
+              - _height
+              - _objects
+        version:
+          type: string
+        model_format:
+          type: string
+        status:
+          type: object
+          properties:
+            code:
+              type: number
+            text:
+              type: string
+            request_id:
+              type: string
+            proc_id:
+              type: string
+          required:
+            - code
+            - text
+            - request_id
+            - proc_id
+        statistics:
+          type: object
+          properties:
+            processing time:
+              type: number
+          required:
+            - processing time
+      required:
+        - records
+        - version
+        - model_format
+        - status
+        - statistics

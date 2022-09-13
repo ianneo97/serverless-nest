@@ -1,12 +1,14 @@
 import {
     GetObjectCommand,
     PutObjectCommand,
+    PutObjectCommandOutput,
     S3Client,
 } from '@aws-sdk/client-s3';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Logger } from 'src/shared/logger/logger.service';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
+import { lookup } from 'mime-types';
 
 @Injectable()
 export class FujikoS3Client {
@@ -30,6 +32,19 @@ export class FujikoS3Client {
         return await getSignedUrl(this.client, command, {
             expiresIn: 3600,
         });
+    }
+
+    async uploadFile(
+        file: Express.Multer.File,
+    ): Promise<PutObjectCommandOutput> {
+        const command = new PutObjectCommand({
+            Bucket: this.bucket,
+            Key: `${file.fieldname}/${file.originalname}`,
+            Body: file.buffer,
+            ContentType: lookup(file.originalname),
+        });
+
+        return await this.client.send(command);
     }
 
     async generateDownloadUrl(fileName: string): Promise<string> {

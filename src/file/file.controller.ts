@@ -1,12 +1,31 @@
-import { Controller, Get, Param, Put, Query, UsePipes } from '@nestjs/common';
+import {
+    Controller,
+    Get,
+    Param,
+    Post,
+    Put,
+    Query,
+    UploadedFile,
+    UseInterceptors,
+    UsePipes,
+} from '@nestjs/common';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
-import { ApiOkResponse, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
+import {
+    ApiBody,
+    ApiConsumes,
+    ApiOkResponse,
+    ApiParam,
+    ApiQuery,
+    ApiTags,
+} from '@nestjs/swagger';
 import { FileService } from './file.service';
 import {
     FilePresignedResponseDto,
     FileResponseDto,
     UpdatedFileResponseDto,
 } from './dto/file.upload.response';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
 
 @Controller('file')
 @UsePipes(ZodValidationPipe)
@@ -14,30 +33,37 @@ import {
 export class FileController {
     constructor(private readonly service: FileService) {}
 
-    @Get('/upload/:fileName')
-    @ApiOkResponse({ type: FilePresignedResponseDto })
-    @ApiParam({
-        name: 'fileName',
-        required: true,
-        description: 'File Name',
+    @Post('/upload')
+    @ApiConsumes('multipart/form-data')
+    @ApiBody({
+        schema: {
+            type: 'object',
+            properties: {
+                file: {
+                    type: 'string',
+                    format: 'binary',
+                },
+            },
+        },
     })
-    async generateUploadUrl(
-        @Param() { fileName }: { fileName: string },
-    ): Promise<FilePresignedResponseDto> {
-        const response = await this.service.generateUploadUrl(fileName);
+    @UseInterceptors(FileInterceptor('file'))
+    async uploadFile(
+        @UploadedFile() file: Express.Multer.File,
+    ): Promise<PutObjectCommandOutput> {
+        return await this.service.uploadFile(file);
 
-        return response;
+        // return response;
     }
 
-    @Get('/download/:fileName')
+    @Get('/download')
     @ApiOkResponse({ type: FilePresignedResponseDto })
-    @ApiParam({
+    @ApiQuery({
         name: 'fileName',
         required: true,
         description: 'File Name',
     })
     async generateDownloadUrl(
-        @Param() { fileName }: { fileName: string },
+        @Query() { fileName }: { fileName: string },
     ): Promise<FilePresignedResponseDto> {
         const response = await this.service.generateDownloadUrl(fileName);
 

@@ -29,6 +29,7 @@ module.exports = {
     },
     ignorePatterns: ['.eslintrc.js'],
     rules: {
+        'nestjs/use-validation-pipe': 'off',
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/no-unused-vars': [
             'error',

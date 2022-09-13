@@ -1,5 +1,5 @@
 import { ExpressAdapter } from '@nestjs/platform-express';
-import { patchNestjsSwagger } from '@anatine/zod-nestjs';
+import { patchNestjsSwagger, ZodValidationPipe } from '@anatine/zod-nestjs';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
@@ -50,6 +50,8 @@ async function bootstrap(): Promise<Handler> {
         const DEFAULT_BASE_PREFIX = 'api';
         nestApp.setGlobalPrefix(DEFAULT_BASE_PREFIX);
         nestApp.enableCors();
+
+        nestApp.useGlobalPipes(new ZodValidationPipe());
 
         const configService = nestApp.get(ConfigService);
 

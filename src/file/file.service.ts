@@ -23,6 +23,7 @@ import {
     FileResponseDto,
     UpdatedFileResponseDto,
 } from './dto/file.upload.response';
+import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
 
 interface S3Notification
     extends EventBridgeEvent<
@@ -40,18 +41,18 @@ export class FileService {
         private readonly dynamoDbService: FujikoDynamoClient,
     ) {}
 
-    async generateUploadUrl(
-        fileName: string,
-    ): Promise<FilePresignedResponseDto> {
-        this.validateFileName(fileName);
-        const url = await this.s3Service.generateUploadUrl(fileName);
+    async uploadFile(
+        fileName: Express.Multer.File,
+    ): Promise<PutObjectCommandOutput> {
+        // this.validateFileName(fileName);
+        const url = await this.s3Service.uploadFile(fileName);
 
         this.logger.log({
             message: 'Generated upload presigned url',
             url: url,
         });
 
-        return { fileName: fileName, presignedUrl: url };
+        return url;
     }
 
     async generateDownloadUrl(
