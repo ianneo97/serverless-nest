@@ -7,11 +7,12 @@ import { FileModule } from './file/file.module';
 import appConfig from './config/app.config';
 import s3Config from './config/s3.config';
 import ximilarConfig from './config/ximilar.config';
+import ecwidConfig from './config/ecwid.config';
 
 @Module({
     imports: [
         ConfigModule.forRoot({
-            load: [appConfig, s3Config, ximilarConfig],
+            load: [appConfig, s3Config, ximilarConfig, ecwidConfig],
         }),
         FileModule,
         IntegrationModule,

@@ -49,8 +49,9 @@ export class FileController {
     @UseInterceptors(FileInterceptor('file'))
     async uploadFile(
         @UploadedFile() file: Express.Multer.File,
+        @Query() { filePath }: { filePath: string },
     ): Promise<PutObjectCommandOutput> {
-        return await this.service.uploadFile(file);
+        return await this.service.uploadFile(file, filePath);
 
         // return response;
     }

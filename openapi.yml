@@ -93,7 +93,64 @@ paths:
               schema:
                 $ref: "#/components/schemas/XimilarResponse"
       tags:
+        &a2
         - Integration Module
+  /api/integration/ecwid/product:
+    post:
+      operationId: IntegrationController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EcwidCreateProductRequest"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EcwidCreateProductResponse"
+      tags: *a2
+  /api/integration/ecwid/product/image:
+    post:
+      operationId: IntegrationController_uploadImage
+      parameters:
+        - name: id
+          required: true
+          in: query
+          description: Product ID
+          schema: {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EcwidUploadImageRequest"
+      responses:
+        "201":
+          description: ""
+      tags: *a2
+  /api/integration/ecwid/product/gallery:
+    post:
+      operationId: IntegrationController_uploadGallery
+      parameters:
+        - name: id
+          required: true
+          in: query
+          description: Product ID
+          schema: {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EcwidUploadImageRequest"
+      responses:
+        "201":
+          description: ""
+      tags: *a2
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -534,3 +591,39 @@ components:
         - model_format
         - status
         - statistics
+    EcwidCreateProductRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        sku:
+          type: string
+        quantity:
+          type: number
+        price:
+          type: number
+      required:
+        - name
+        - sku
+        - quantity
+        - price
+    EcwidCreateProductResponse:
+      type: object
+      properties:
+        id:
+          type: string
+      required:
+        - id
+    EcwidUploadImageRequest:
+      type: object
+      properties:
+        url:
+          type: string
+        width:
+          type: number
+        height:
+          type: number
+      required:
+        - url
+        - width
+        - height

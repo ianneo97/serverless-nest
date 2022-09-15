@@ -7,6 +7,7 @@ import { LoggingInterceptor } from './interceptors/logger.interceptor';
 import { LoggerModule } from './logger/logger.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { XimilarModule } from './clients/ximilar/ximilar.module';
+import { EcwidModule } from './clients/ecwid/ecwid.module';
 
 @Module({
     imports: [
@@ -14,6 +15,7 @@ import { XimilarModule } from './clients/ximilar/ximilar.module';
         S3Module,
         DynamoDBModule,
         XimilarModule,
+        EcwidModule,
         EventEmitterModule.forRoot(),
     ],
     providers: [
@@ -23,6 +25,12 @@ import { XimilarModule } from './clients/ximilar/ximilar.module';
             useClass: AllExceptionFilter,
         },
     ],
-    exports: [LoggerModule, S3Module, DynamoDBModule, XimilarModule],
+    exports: [
+        LoggerModule,
+        S3Module,
+        DynamoDBModule,
+        XimilarModule,
+        EcwidModule,
+    ],
 })
 export class SharedModule {}

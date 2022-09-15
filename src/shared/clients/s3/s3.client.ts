@@ -36,10 +36,11 @@ export class FujikoS3Client {
 
     async uploadFile(
         file: Express.Multer.File,
+        filePath: string,
     ): Promise<PutObjectCommandOutput> {
         const command = new PutObjectCommand({
             Bucket: this.bucket,
-            Key: `${file.fieldname}/${file.originalname}`,
+            Key: `${filePath}/${file.originalname}`,
             Body: file.buffer,
             ContentType: lookup(file.originalname),
         });

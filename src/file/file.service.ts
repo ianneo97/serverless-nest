@@ -42,10 +42,11 @@ export class FileService {
     ) {}
 
     async uploadFile(
-        fileName: Express.Multer.File,
+        file: Express.Multer.File,
+        filePath: string,
     ): Promise<PutObjectCommandOutput> {
-        // this.validateFileName(fileName);
-        const url = await this.s3Service.uploadFile(fileName);
+        // this.validateFileName(filePath + file.originalname);
+        const url = await this.s3Service.uploadFile(file, filePath);
 
         this.logger.log({
             message: 'Generated upload presigned url',
@@ -181,6 +182,8 @@ export class FileService {
 
     private validateFileName(fileName: string): void {
         const result = /\.(jpe?g|png)$/i.test(fileName);
+        console.log(result);
+        console.log(fileName);
 
         if (!result) {
             throw new InvalidFileExtensionException();
