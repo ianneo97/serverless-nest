@@ -20,6 +20,7 @@ import {
 } from '@nestjs/swagger';
 import { FileService } from './file.service';
 import {
+    CreatedFileResponseDto,
     FilePresignedResponseDto,
     FileResponseDto,
     UpdatedFileResponseDto,
@@ -52,8 +53,6 @@ export class FileController {
         @Query() { filePath }: { filePath: string },
     ): Promise<PutObjectCommandOutput> {
         return await this.service.uploadFile(file, filePath);
-
-        // return response;
     }
 
     @Get('/download')
@@ -101,5 +100,11 @@ export class FileController {
         @Query() { mainImage }: { mainImage: string },
     ): Promise<UpdatedFileResponseDto> {
         return await this.service.updateMainImage(id, mainImage);
+    }
+
+    @Post()
+    @ApiOkResponse({ type: CreatedFileResponseDto })
+    async create(): Promise<CreatedFileResponseDto> {
+        return await this.service.create();
     }
 }

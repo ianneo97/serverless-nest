@@ -75,6 +75,18 @@ paths:
               schema:
                 $ref: "#/components/schemas/UpdatedFileResponseDto"
       tags: *a1
+  /api/file:
+    post:
+      operationId: FileController_create
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreatedFileResponseDto"
+      tags: *a1
   /api/integration/ximilar/detect:
     post:
       operationId: IntegrationController_detectTags
@@ -196,6 +208,13 @@ components:
           default: updated_time
           type: string
       required: []
+    CreatedFileResponseDto:
+      type: object
+      properties:
+        sku_id:
+          default: SK 0001
+          type: string
+      required: []
     XimilarRequest:
       type: object
       properties:
@@ -204,14 +223,14 @@ components:
           items:
             type: object
             properties:
-              _url:
+              _base64:
                 type: string
               Top Category:
                 type: string
               Category:
                 type: string
             required:
-              - _url
+              - _base64
               - Top Category
               - Category
       required:

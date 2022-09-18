@@ -6,7 +6,7 @@ export const schema = extendApi(
     z.object({
         records: z.array(
             z.object({
-                _url: z.string(),
+                _base64: z.string(),
                 'Top Category': z.string(),
                 Category: z.string(),
             }),

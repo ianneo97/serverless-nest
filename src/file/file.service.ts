@@ -19,11 +19,13 @@ import {
 } from './exceptions/file.exceptions';
 import moment from 'moment';
 import {
+    CreatedFileResponseDto,
     FilePresignedResponseDto,
     FileResponseDto,
     UpdatedFileResponseDto,
 } from './dto/file.upload.response';
 import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
+import { v4 } from 'uuid';
 
 interface S3Notification
     extends EventBridgeEvent<
@@ -126,6 +128,20 @@ export class FileService {
         };
     }
 
+    async create(): Promise<CreatedFileResponseDto> {
+        const id = v4();
+        const command = new PutItemCommand({
+            TableName: process.env.SKU_DYNAMODB_TABLE,
+            Item: {
+                sku_id: { S: id },
+            },
+        });
+
+        await this.dynamoDbService.query(command);
+
+        return { sku_id: id };
+    }
+
     private async getItem(id: string): Promise<GetItemCommandOutput> {
         const command = new GetItemCommand({
             TableName: process.env.SKU_DYNAMODB_TABLE,
@@ -182,8 +198,6 @@ export class FileService {
 
     private validateFileName(fileName: string): void {
         const result = /\.(jpe?g|png)$/i.test(fileName);
-        console.log(result);
-        console.log(fileName);
 
         if (!result) {
             throw new InvalidFileExtensionException();
