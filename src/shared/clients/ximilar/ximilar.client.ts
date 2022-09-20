@@ -28,8 +28,6 @@ export class XimilarClient {
         const url = this.config.get('ximilar.url');
         const config = this.initConfig();
 
-        this.logger.log({ url, request, config });
-
         const response = await this.service.axiosRef.post<XimilarResponse>(
             url,
             request,
