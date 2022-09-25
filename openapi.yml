@@ -621,11 +621,43 @@ components:
           type: number
         price:
           type: number
+        unlimited:
+          type: boolean
+        isShippingRequired:
+          type: boolean
+        weight:
+          type: number
+        shipping:
+          type: object
+          properties:
+            type:
+              type: string
+          required: []
+        attributes:
+          type: object
+          properties:
+            id:
+              type: string
+            value:
+              type: string
+          required: []
+        description:
+          type: string
+        defaultCategoryId:
+          type: string
+        showOnFrontpage:
+          type: number
+        discountsAllowed:
+          type: boolean
+        nameYourPriceEnabled:
+          type: boolean
       required:
         - name
         - sku
         - quantity
         - price
+        - shipping
+        - attributes
     EcwidCreateProductResponse:
       type: object
       properties:

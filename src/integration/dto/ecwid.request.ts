@@ -8,6 +8,21 @@ const createSchemaRequest = extendApi(
         sku: z.string(),
         quantity: z.number(),
         price: z.number(),
+        unlimited: z.boolean().optional(),
+        isShippingRequired: z.boolean().optional(),
+        weight: z.number().optional(),
+        shipping: z.object({
+            type: z.string().optional(),
+        }),
+        attributes: z.object({
+            id: z.string().optional(),
+            value: z.string().optional(),
+        }),
+        description: z.string().optional(),
+        defaultCategoryId: z.string().optional(),
+        showOnFrontpage: z.number().optional(),
+        discountsAllowed: z.boolean().optional(),
+        nameYourPriceEnabled: z.boolean().optional(),
     }),
 );
 
