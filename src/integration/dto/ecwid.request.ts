@@ -11,15 +11,22 @@ const createSchemaRequest = extendApi(
         unlimited: z.boolean().optional(),
         isShippingRequired: z.boolean().optional(),
         weight: z.number().optional(),
-        shipping: z.object({
-            type: z.string().optional(),
-        }),
-        attributes: z.object({
-            id: z.string().optional(),
-            value: z.string().optional(),
-        }),
+        enabled: z.boolean(),
+        shipping: z
+            .object({
+                type: z.string().default('GLOBAL_METHODS'),
+            })
+            .default({
+                type: 'GLOBAL_METHODS',
+            }),
+        attributes: z.array(
+            z.object({
+                id: z.number().optional(),
+                value: z.string().default(''),
+            }),
+        ),
         description: z.string().optional(),
-        defaultCategoryId: z.string().optional(),
+        defaultCategoryId: z.number().optional(),
         showOnFrontpage: z.number().optional(),
         discountsAllowed: z.boolean().optional(),
         nameYourPriceEnabled: z.boolean().optional(),

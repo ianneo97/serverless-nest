@@ -1,3 +1,8 @@
+import {
+    ProductAlreadyExistsException,
+    MainImageFailedException,
+    GalleryImageFailedException,
+} from './ecwid.exception';
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -23,36 +28,46 @@ export class EcwidClient {
     async addProduct(
         request: EcwidCreateProductRequest,
     ): Promise<EcwidCreateProductResponse> {
-        const url = `${this.baseUrl}/products&token=${this.secret}`;
+        try {
+            const url = `${this.baseUrl}?token=${this.secret}`;
 
-        this.logger.log({ url, request });
+            this.logger.log({ url, request });
 
-        const response =
-            await this.service.axiosRef.post<EcwidCreateProductResponse>(
-                url,
-                request,
-            );
+            const response =
+                await this.service.axiosRef.post<EcwidCreateProductResponse>(
+                    url,
+                    request,
+                );
 
-        return response.data;
+            return response.data;
+        } catch (err) {
+            throw new ProductAlreadyExistsException();
+        }
     }
 
     async uploadImage(
         id: string,
         request: EcwidUploadImageRequest,
     ): Promise<void> {
-        const url = `${this.baseUrl}/products/${id}/image/async&token=${this.secret}`;
-        this.logger.log({ url, request });
+        try {
+            const url = `${this.baseUrl}/${id}/image/async?token=${this.secret}`;
 
-        await this.service.axiosRef.post(url, request);
+            await this.service.axiosRef.post(url, request);
+        } catch (err) {
+            throw new MainImageFailedException();
+        }
     }
 
     async uploadGallery(
         id: string,
         request: EcwidUploadImageRequest,
     ): Promise<void> {
-        const url = `${this.baseUrl}/products/${id}/gallery/async&token=${this.secret}`;
-        this.logger.log({ url, request });
+        try {
+            const url = `${this.baseUrl}/products/${id}/gallery/async?token=${this.secret}`;
 
-        await this.service.axiosRef.post(url, request);
+            await this.service.axiosRef.post(url, request);
+        } catch (err) {
+            throw new GalleryImageFailedException();
+        }
     }
 }

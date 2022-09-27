@@ -70,6 +70,21 @@ export class FileController {
         return response;
     }
 
+    @Get('/upload')
+    @ApiOkResponse({ type: FilePresignedResponseDto })
+    @ApiQuery({
+        name: 'fileName',
+        required: true,
+        description: 'File Name',
+    })
+    async generateUploadUrl(
+        @Query() { fileName }: { fileName: string },
+    ): Promise<FilePresignedResponseDto> {
+        const response = await this.service.generateUploadUrl(fileName);
+
+        return response;
+    }
+
     @Get(':id')
     @ApiOkResponse({ type: FileResponseDto })
     @ApiParam({

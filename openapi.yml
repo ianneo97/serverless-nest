@@ -20,6 +20,22 @@ paths:
       tags:
         &a1
         - File Module
+    get:
+      operationId: FileController_generateUploadUrl
+      parameters:
+        - name: fileName
+          required: true
+          in: query
+          description: File Name
+          schema: {}
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FilePresignedResponseDto"
+      tags: *a1
   /api/file/download:
     get:
       operationId: FileController_generateDownloadUrl
@@ -125,7 +141,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/EcwidCreateProductResponse"
       tags: *a2
-  /api/integration/ecwid/product/image:
+  "/api/integration/ecwid/product/image/{id}":
     post:
       operationId: IntegrationController_uploadImage
       parameters:
@@ -627,24 +643,32 @@ components:
           type: boolean
         weight:
           type: number
+        enabled:
+          type: boolean
         shipping:
+          default:
+            type: GLOBAL_METHODS
           type: object
           properties:
             type:
+              default: GLOBAL_METHODS
               type: string
           required: []
         attributes:
-          type: object
-          properties:
-            id:
-              type: string
-            value:
-              type: string
-          required: []
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              value:
+                default: ""
+                type: string
+            required: []
         description:
           type: string
         defaultCategoryId:
-          type: string
+          type: number
         showOnFrontpage:
           type: number
         discountsAllowed:
@@ -656,7 +680,7 @@ components:
         - sku
         - quantity
         - price
-        - shipping
+        - enabled
         - attributes
     EcwidCreateProductResponse:
       type: object

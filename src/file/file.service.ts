@@ -72,6 +72,20 @@ export class FileService {
         return { fileName: fileName, presignedUrl: url };
     }
 
+    async generateUploadUrl(
+        fileName: string,
+    ): Promise<FilePresignedResponseDto> {
+        this.validateFileName(fileName);
+        const url = await this.s3Service.generateUploadUrl(fileName);
+
+        this.logger.log({
+            message: 'Generated upload presigned url',
+            url: url,
+        });
+
+        return { fileName: fileName, presignedUrl: url };
+    }
+
     async insertFile(): Promise<void> {
         const context = await getCurrentInvoke();
         const event = context.event as S3Notification;

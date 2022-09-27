@@ -25,6 +25,7 @@ export class FujikoS3Client {
         const command = new PutObjectCommand({
             Bucket: this.bucket,
             Key: fileName,
+            ContentType: lookup(fileName),
         });
 
         this.logger.log({ command });
