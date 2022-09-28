@@ -18,7 +18,9 @@ provider:
     S3_BUCKET: ${self:service}-${sls:stage}-bucket
     S3_FRONTEND_BUCKET: ${self:service}-${sls:stage}-frontend-bucket
     SKU_DYNAMODB_TABLE: ${self:service}-${sls:stage}-sku-table
+    ECWID_TABLE: ${self:service}-${sls:stage}-ecwid-table
     SKU_TIMESTAMP_INDEX_TABLE: ${self:service}-${sls:stage}-sku-timestamp-index-table
+    ECWID_TIMESTAMP_INDEX_TABLE: ${self:service}-${sls:stage}-ecwid-timestamp-index-table
     XIMILAR_URL: https://api.ximilar.com/tagging/fashion/v2/detect_tags
     XIMILAR_TOKEN: 89de880c44751e7c776742d5aecc3aec9fe0db3f
 

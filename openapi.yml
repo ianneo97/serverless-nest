@@ -103,6 +103,29 @@ paths:
               schema:
                 $ref: "#/components/schemas/CreatedFileResponseDto"
       tags: *a1
+  "/api/file/ecwid/{id}":
+    patch:
+      operationId: FileController_updateEcwidId
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: sku id for the file
+          schema: {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FileUploadUpdateRequest"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileUploadUpdateRequest"
+      tags: *a1
   /api/integration/ximilar/detect:
     post:
       operationId: IntegrationController_detectTags
@@ -160,7 +183,7 @@ paths:
         "201":
           description: ""
       tags: *a2
-  /api/integration/ecwid/product/gallery:
+  "/api/integration/ecwid/product/gallery/{id}":
     post:
       operationId: IntegrationController_uploadGallery
       parameters:
@@ -231,6 +254,9 @@ components:
           default: SK 0001
           type: string
       required: []
+    FileUploadUpdateRequest:
+      type: object
+      properties: {}
     XimilarRequest:
       type: object
       properties:
@@ -247,8 +273,6 @@ components:
                 type: string
             required:
               - _base64
-              - Top Category
-              - Category
       required:
         - records
     XimilarResponse:

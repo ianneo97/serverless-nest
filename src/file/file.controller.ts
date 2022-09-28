@@ -1,7 +1,9 @@
 import {
+    Body,
     Controller,
     Get,
     Param,
+    Patch,
     Post,
     Put,
     Query,
@@ -27,6 +29,7 @@ import {
 } from './dto/file.upload.response';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
+import { FileUploadUpdateRequest } from './dto/file.upload.request';
 
 @Controller('file')
 @UsePipes(ZodValidationPipe)
@@ -121,5 +124,20 @@ export class FileController {
     @ApiOkResponse({ type: CreatedFileResponseDto })
     async create(): Promise<CreatedFileResponseDto> {
         return await this.service.create();
+    }
+
+    @Patch('ecwid/:id')
+    @ApiOkResponse({ type: FileUploadUpdateRequest })
+    @ApiBody({ type: FileUploadUpdateRequest })
+    @ApiParam({
+        name: 'id',
+        required: true,
+        description: 'sku id for the file',
+    })
+    async updateEcwidId(
+        @Param() { id }: { id: string },
+        @Body() data: FileUploadUpdateRequest,
+    ): Promise<{ sku_id: string }> {
+        return await this.service.updateEcwidId(id, data);
     }
 }

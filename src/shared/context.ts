@@ -9,8 +9,6 @@ export function getContext(): Omit<CurrentInvoke, 'event' | 'context'> & {
     context: Context;
 } {
     const context = getCurrentInvoke();
-    console.log('context.ts');
-    console.log(context);
 
     return {
         event: context.event as APIGatewayProxyEvent,

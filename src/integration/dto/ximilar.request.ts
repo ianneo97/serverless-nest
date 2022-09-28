@@ -7,8 +7,8 @@ export const schema = extendApi(
         records: z.array(
             z.object({
                 _base64: z.string(),
-                'Top Category': z.string(),
-                Category: z.string(),
+                'Top Category': z.string().optional(),
+                Category: z.string().optional(),
             }),
         ),
     }),

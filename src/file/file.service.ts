@@ -26,6 +26,7 @@ import {
 } from './dto/file.upload.response';
 import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
 import { v4 } from 'uuid';
+import { FileUploadUpdateRequest } from './dto/file.upload.request';
 
 interface S3Notification
     extends EventBridgeEvent<
@@ -149,6 +150,32 @@ export class FileService {
             Item: {
                 sku_id: { S: id },
             },
+        });
+
+        await this.dynamoDbService.query(command);
+
+        return { sku_id: id };
+    }
+
+    async updateEcwidId(
+        id: string,
+        body: FileUploadUpdateRequest,
+    ): Promise<{ sku_id: string }> {
+        const command = new UpdateItemCommand({
+            TableName: process.env.SKU_DYNAMODB_TABLE,
+            Key: {
+                sku_id: { S: id },
+            },
+            ExpressionAttributeNames: {
+                '#ecwid_id': 'ecwid_id',
+                '#time': 'updated_time',
+            },
+            ExpressionAttributeValues: {
+                ':ecwid_id': { N: body.ecwid_id.toString() },
+                ':updated_time': { S: moment().format() },
+            },
+            UpdateExpression:
+                'SET #ecwid_id = :ecwid_id, #time = :updated_time',
         });
 
         await this.dynamoDbService.query(command);

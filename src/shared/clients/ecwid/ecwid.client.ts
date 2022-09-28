@@ -29,9 +29,7 @@ export class EcwidClient {
         request: EcwidCreateProductRequest,
     ): Promise<EcwidCreateProductResponse> {
         try {
-            const url = `${this.baseUrl}?token=${this.secret}`;
-
-            this.logger.log({ url, request });
+            const url = `${this.baseUrl}/products?token=${this.secret}`;
 
             const response =
                 await this.service.axiosRef.post<EcwidCreateProductResponse>(
@@ -50,7 +48,7 @@ export class EcwidClient {
         request: EcwidUploadImageRequest,
     ): Promise<void> {
         try {
-            const url = `${this.baseUrl}/${id}/image/async?token=${this.secret}`;
+            const url = `${this.baseUrl}/products/${id}/image/async?token=${this.secret}`;
 
             await this.service.axiosRef.post(url, request);
         } catch (err) {

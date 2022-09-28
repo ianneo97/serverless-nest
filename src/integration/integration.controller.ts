@@ -3,7 +3,7 @@ import {
     EcwidCreateProductResponse,
     EcwidUploadImageRequest,
 } from 'src/integration/dto/ecwid.request';
-import { Body, Controller, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Param, Post } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { XimilarRequest } from './dto/ximilar.request';
 import { XimilarResponse } from './dto/ximilar.response';
@@ -50,7 +50,7 @@ export class IntegrationController {
         await this.service.uploadImage(id, request);
     }
 
-    @Post('/ecwid/product/gallery')
+    @Post('/ecwid/product/gallery/:id')
     @ApiBody({ type: EcwidUploadImageRequest })
     @ApiQuery({
         name: 'id',
@@ -58,7 +58,7 @@ export class IntegrationController {
         description: 'Product ID',
     })
     async uploadGallery(
-        @Query() { id }: { id: string },
+        @Param() { id }: { id: string },
         @Body() request: EcwidUploadImageRequest,
     ): Promise<void> {
         await this.service.uploadGallery(id, request);
