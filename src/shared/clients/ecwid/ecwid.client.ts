@@ -48,9 +48,10 @@ export class EcwidClient {
         request: EcwidUploadImageRequest,
     ): Promise<void> {
         try {
-            const url = `${this.baseUrl}/products/${id}/image/async?token=${this.secret}`;
+            const fileUrl = `https://nestjs-serverless-dev-bucket.s3.ap-southeast-1.amazonaws.com/${request.file_name}`;
+            const url = `${this.baseUrl}/products/${id}/image?token=${this.secret}&externalUrl=${fileUrl}`;
 
-            await this.service.axiosRef.post(url, request);
+            await this.service.axiosRef.post(url, {});
         } catch (err) {
             throw new MainImageFailedException();
         }
@@ -61,9 +62,10 @@ export class EcwidClient {
         request: EcwidUploadImageRequest,
     ): Promise<void> {
         try {
-            const url = `${this.baseUrl}/products/${id}/gallery/async?token=${this.secret}`;
+            const fileUrl = `https://nestjs-serverless-dev-bucket.s3.ap-southeast-1.amazonaws.com/${request.file_name}`;
+            const url = `${this.baseUrl}/products/${id}/gallery?token=${this.secret}&externalUrl=${fileUrl}`;
 
-            await this.service.axiosRef.post(url, request);
+            await this.service.axiosRef.post(url, {});
         } catch (err) {
             throw new GalleryImageFailedException();
         }

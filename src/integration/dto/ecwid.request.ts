@@ -37,9 +37,10 @@ const createSchemaResponse = extendApi(z.object({ id: z.string() }));
 
 const uploadImageSchema = extendApi(
     z.object({
-        url: z.string(),
-        width: z.number(),
-        height: z.number(),
+        file_name: z.string().optional(),
+        url: z.string().optional(),
+        width: z.number().optional(),
+        height: z.number().optional(),
     }),
 );
 

@@ -4,7 +4,13 @@ import {
     EcwidUploadImageRequest,
 } from 'src/integration/dto/ecwid.request';
 import { Body, Controller, Param, Post } from '@nestjs/common';
-import { ApiBody, ApiOkResponse, ApiQuery, ApiTags } from '@nestjs/swagger';
+import {
+    ApiBody,
+    ApiOkResponse,
+    ApiParam,
+    ApiQuery,
+    ApiTags,
+} from '@nestjs/swagger';
 import { XimilarRequest } from './dto/ximilar.request';
 import { XimilarResponse } from './dto/ximilar.response';
 import { IntegrationService } from './integration.service';
@@ -38,16 +44,16 @@ export class IntegrationController {
 
     @Post('/ecwid/product/image/:id')
     @ApiBody({ type: EcwidUploadImageRequest })
-    @ApiQuery({
+    @ApiParam({
         name: 'id',
         required: true,
         description: 'Product ID',
     })
     async uploadImage(
-        @Param() { id }: { id: string },
+        @Param() param: { id: string },
         @Body() request: EcwidUploadImageRequest,
     ): Promise<void> {
-        await this.service.uploadImage(id, request);
+        await this.service.uploadImage(param.id, request);
     }
 
     @Post('/ecwid/product/gallery/:id')

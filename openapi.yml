@@ -3,7 +3,12 @@ paths:
   /api/file/upload:
     post:
       operationId: FileController_uploadFile
-      parameters: []
+      parameters:
+        - name: fileName
+          required: true
+          in: query
+          description: File name
+          schema: {}
       requestBody:
         required: true
         content:
@@ -170,7 +175,7 @@ paths:
       parameters:
         - name: id
           required: true
-          in: query
+          in: path
           description: Product ID
           schema: {}
       requestBody:
@@ -716,13 +721,12 @@ components:
     EcwidUploadImageRequest:
       type: object
       properties:
+        file_name:
+          type: string
         url:
           type: string
         width:
           type: number
         height:
           type: number
-      required:
-        - url
-        - width
-        - height
+      required: []

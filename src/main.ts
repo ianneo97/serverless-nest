@@ -1,5 +1,5 @@
 import { ExpressAdapter } from '@nestjs/platform-express';
-import { patchNestjsSwagger } from '@anatine/zod-nestjs';
+import { patchNestjsSwagger, ZodValidationPipe } from '@anatine/zod-nestjs';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
@@ -16,6 +16,7 @@ import { INestApplication } from '@nestjs/common';
 import yaml from 'yaml';
 import { writeFileSync } from 'fs';
 import { ConfigService } from '@nestjs/config';
+import { json } from 'body-parser';
 
 let cachedServer: Handler;
 
@@ -51,7 +52,9 @@ async function bootstrap(): Promise<Handler> {
         nestApp.setGlobalPrefix(DEFAULT_BASE_PREFIX);
         nestApp.enableCors();
 
-        // nestApp.useGlobalPipes(new ZodValidationPipe());
+        nestApp.use(json({ limit: '5mb' }));
+
+        nestApp.useGlobalPipes(new ZodValidationPipe());
 
         const configService = nestApp.get(ConfigService);
 

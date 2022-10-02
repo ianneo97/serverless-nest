@@ -50,6 +50,11 @@ export class FileController {
             },
         },
     })
+    @ApiQuery({
+        name: 'fileName',
+        required: true,
+        description: 'File name',
+    })
     @UseInterceptors(FileInterceptor('file'))
     async uploadFile(
         @UploadedFile() file: Express.Multer.File,
