@@ -22,6 +22,7 @@ const createSchemaRequest = extendApi(
         attributes: z.array(
             z.object({
                 id: z.number().optional(),
+                name: z.string().optional(),
                 value: z.string().default(''),
             }),
         ),

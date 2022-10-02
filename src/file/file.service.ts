@@ -107,9 +107,18 @@ export class FileService {
             throw new FileNotFoundException();
         }
 
+        const files = item.Item?.files.L.map((file) => {
+            return file.S;
+        });
+
         return {
             sku_id: item.Item?.sku_id?.S,
             main_file: item.Item?.main_file?.S,
+            files: files,
+            ecwid_data: item.Item?.ecwid_data?.S
+                ? JSON.parse(item.Item?.ecwid_data?.S)
+                : '',
+            ecwid_id: item.Item?.ecwid_id?.S,
             updated_time: item.Item?.updated_time?.S,
         };
     }
@@ -171,7 +180,7 @@ export class FileService {
                 '#time': 'updated_time',
             },
             ExpressionAttributeValues: {
-                ':ecwid_id': { N: body.ecwid_id.toString() },
+                ':ecwid_id': { S: body.ecwid_id.toString() },
                 ':updated_time': { S: moment().format() },
             },
             UpdateExpression:
@@ -189,7 +198,6 @@ export class FileService {
             Key: {
                 sku_id: { S: id },
             },
-            ProjectionExpression: 'sku_id, main_file, updated_time',
         });
 
         return await this.dynamoDbService.query(command);

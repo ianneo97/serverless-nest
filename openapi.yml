@@ -232,13 +232,26 @@ components:
         sku_id:
           default: SK 0001
           type: string
+        files:
+          type: array
+          items:
+            default: image.png
+            type: string
         main_file:
           default: image.png
+          type: string
+        ecwid_data:
+          type: string
+        ecwid_id:
+          type: string
+        created_time:
+          default: created_time
           type: string
         updated_time:
           default: updated_time
           type: string
-      required: []
+      required:
+        - files
     UpdatedFileResponseDto:
       type: object
       properties:
@@ -690,6 +703,8 @@ components:
             properties:
               id:
                 type: number
+              name:
+                type: string
               value:
                 default: ""
                 type: string

@@ -46,6 +46,7 @@ resources:
 functions:
   api:
     handler: dist/main.handler
+    timeout: 30
     events:
       - http:
           method: any
