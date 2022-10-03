@@ -207,6 +207,14 @@ paths:
         "201":
           description: ""
       tags: *a2
+  /api/integration/translations:
+    get:
+      operationId: IntegrationController_getTranslations
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      tags: *a2
 info:
   title: Swagger API
   description: Swagger APIs for application

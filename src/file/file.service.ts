@@ -25,7 +25,6 @@ import {
     UpdatedFileResponseDto,
 } from './dto/file.upload.response';
 import { PutObjectCommandOutput } from '@aws-sdk/client-s3';
-import { v4 } from 'uuid';
 import { FileUploadUpdateRequest } from './dto/file.upload.request';
 
 interface S3Notification
@@ -153,7 +152,7 @@ export class FileService {
     }
 
     async create(): Promise<CreatedFileResponseDto> {
-        const id = v4();
+        const id = await this.getIndexingId();
         const command = new PutItemCommand({
             TableName: process.env.SKU_DYNAMODB_TABLE,
             Item: {
@@ -254,6 +253,50 @@ export class FileService {
 
         if (fileName.split('/').length !== 2) {
             throw new InvalidFileNameException();
+        }
+    }
+
+    private async getIndexingId(): Promise<string> {
+        const getItemCommand = new GetItemCommand({
+            TableName: process.env.INDEXING_TABLE,
+            Key: { id: { N: '1' } },
+        });
+
+        const response = await this.dynamoDbService.query(getItemCommand);
+
+        if (!response.Item) {
+            const command = new PutItemCommand({
+                TableName: process.env.INDEXING_TABLE,
+                Item: {
+                    id: { N: '1' },
+                    lastId: { N: '1' },
+                    lastUpdatedTime: { S: moment().format() },
+                },
+            });
+
+            await this.dynamoDbService.query(command);
+            return '1';
+        } else {
+            const command = new UpdateItemCommand({
+                TableName: process.env.INDEXING_TABLE,
+                Key: {
+                    id: { N: '1' },
+                },
+                ExpressionAttributeNames: {
+                    '#lastId': 'lastId',
+                    '#time': 'updated_time',
+                },
+                ExpressionAttributeValues: {
+                    ':lastId': {
+                        N: (Number(response.Item.lastId.N) + 1).toString(),
+                    },
+                    ':updated_time': { S: moment().format() },
+                },
+                UpdateExpression: 'SET #lastId=:lastId, #time = :updated_time',
+            });
+
+            await this.dynamoDbService.query(command);
+            return (Number(response.Item.lastId.N) + 1).toString();
         }
     }
 }

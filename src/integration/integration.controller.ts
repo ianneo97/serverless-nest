@@ -3,7 +3,7 @@ import {
     EcwidCreateProductResponse,
     EcwidUploadImageRequest,
 } from 'src/integration/dto/ecwid.request';
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
     ApiBody,
     ApiOkResponse,
@@ -14,6 +14,7 @@ import {
 import { XimilarRequest } from './dto/ximilar.request';
 import { XimilarResponse } from './dto/ximilar.response';
 import { IntegrationService } from './integration.service';
+import { Translation } from './model/translation.model';
 
 @Controller('integration')
 @ApiTags('Integration Module')
@@ -68,5 +69,10 @@ export class IntegrationController {
         @Body() request: EcwidUploadImageRequest,
     ): Promise<void> {
         await this.service.uploadGallery(id, request);
+    }
+
+    @Get('/translations')
+    async getTranslations(): Promise<Translation[]> {
+        return await this.service.getTranslations();
     }
 }

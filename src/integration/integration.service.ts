@@ -10,8 +10,9 @@ import { Logger } from 'src/shared/logger/logger.service';
 import { XimilarResponse } from './dto/ximilar.response';
 import { XimilarRequest } from './dto/ximilar.request';
 import { FujikoDynamoClient } from './../shared/clients/dynamodb/dynamodb.client';
-import { UpdateItemCommand } from '@aws-sdk/client-dynamodb';
+import { ScanCommand, UpdateItemCommand } from '@aws-sdk/client-dynamodb';
 import moment from 'moment';
+import { Translation } from './model/translation.model';
 
 @Injectable()
 export class IntegrationService {
@@ -66,5 +67,22 @@ export class IntegrationService {
         request: EcwidUploadImageRequest,
     ): Promise<void> {
         await this.ecwid.uploadGallery(id, request);
+    }
+
+    async getTranslations(): Promise<Translation[]> {
+        const command = new ScanCommand({
+            TableName: process.env.TRANSLATION_TABLE,
+        });
+
+        const response = await this.dbClient.query(command);
+
+        return response.Items.map((item) => {
+            return {
+                ID: item.ID.S,
+                Type: item.Type.S,
+                TH_Desc: item.TH_Desc.S,
+                XI_EN_Desc: item.XI_EN_Desc.S,
+            } as Translation;
+        });
     }
 }

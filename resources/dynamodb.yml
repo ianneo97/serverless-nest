@@ -20,23 +20,26 @@ Resources:
           Projection:
             ProjectionType: ALL
 
-  EcwidTable:
+  EcwidTranslationTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:provider.environment.ECWID_TABLE}
+      TableName: ${self:provider.environment.TRANSLATION_TABLE}
       BillingMode: PAY_PER_REQUEST
       KeySchema:
-        - AttributeName: id 
+        - AttributeName: ID
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: ID 
+          AttributeType: S
+
+  IndexingTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:provider.environment.INDEXING_TABLE}
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: id
           KeyType: HASH
       AttributeDefinitions:
         - AttributeName: id 
-          AttributeType: S
-        - AttributeName: updated_time
-          AttributeType: S
-      GlobalSecondaryIndexes:
-        - IndexName: ${self:provider.environment.ECWID_TIMESTAMP_INDEX_TABLE}
-          KeySchema:
-            - AttributeName: updated_time
-              KeyType: HASH
-          Projection:
-            ProjectionType: ALL
+          AttributeType: N
