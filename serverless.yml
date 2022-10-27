@@ -20,6 +20,9 @@ provider:
     SKU_DYNAMODB_TABLE: ${self:service}-${sls:stage}-sku-table
     TRANSLATION_TABLE: ${self:service}-${sls:stage}-translation-table
     INDEXING_TABLE: ${self:service}-${sls:stage}-indexing-table
+    BRAND_TABLE: ${self:service}-${sls:stage}-brand-table
+    SUBCATEGORY_TABLE: ${self:service}-${sls:stage}-subcategory-table
+    RATING_TABLE: ${self:service}-${sls:stage}-rating-table
     SKU_TIMESTAMP_INDEX_TABLE: ${self:service}-${sls:stage}-sku-timestamp-index-table
     ECWID_TIMESTAMP_INDEX_TABLE: ${self:service}-${sls:stage}-ecwid-timestamp-index-table
     XIMILAR_URL: https://api.ximilar.com/tagging/fashion/v2/detect_tags

@@ -215,6 +215,45 @@ paths:
         "200":
           description: ""
       tags: *a2
+  /api/categories:
+    get:
+      operationId: CategoryController_getCategories
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CategoryDto"
+      tags:
+        - Category Module
+  /api/brands:
+    get:
+      operationId: BrandController_getBrands
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      tags:
+        - Brand Module
+  /api/ratings:
+    get:
+      operationId: RatingController_getRatings
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RatingDto"
+      tags:
+        - Rating Module
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -753,3 +792,32 @@ components:
         height:
           type: number
       required: []
+    CategoryDto:
+      type: object
+      properties:
+        id:
+          default: 0
+          type: number
+        category:
+          default: ""
+          type: string
+        subcategory:
+          default: ""
+          type: string
+        minPrice:
+          default: 0
+          type: number
+      required: []
+    RatingDto:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          default: ""
+          type: string
+        multiplier:
+          default: 0
+          type: number
+      required:
+        - id

@@ -52,7 +52,7 @@ async function bootstrap(): Promise<Handler> {
         nestApp.setGlobalPrefix(DEFAULT_BASE_PREFIX);
         nestApp.enableCors();
 
-        nestApp.use(json({ limit: '5mb' }));
+        nestApp.use(json({ limit: '8mb' }));
 
         nestApp.useGlobalPipes(new ZodValidationPipe());
 
