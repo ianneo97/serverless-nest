@@ -20,3 +20,23 @@
 // // });
 
 // // console.log(JSON.stringify(newCategories));
+// const excelToJson = require('convert-excel-to-json');
+
+// const result = excelToJson({
+//     sourceFile:
+//         '/Users/ianneo/Desktop/self/serverless-nest/src/migration/FF_tag_trans_mapping (1).xlsx',
+// });
+
+// console.log(JSON.stringify(result));
+// const data = require('./test.json');
+
+// // console.log(data);
+// const result = data.map((item) => ({
+//     ID: item.A,
+//     Type: item.B,
+//     XI_EN_Desc: item.C,
+//     FF_EN_Desc: item?.D || '',
+//     TH_Desc: item.E,
+// }));
+
+// console.log(JSON.stringify(result));

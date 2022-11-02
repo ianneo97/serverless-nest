@@ -30,8 +30,11 @@ export class FujikoDynamoClient {
             OutputType,
             SmithyResolvedConfiguration<HttpHandlerOptions>
         >,
+        toLog = true,
     ): Promise<OutputType> {
-        this.logger.log({ command: command });
+        if (toLog) {
+            this.logger.log({ command: command });
+        }
 
         return await this.client.send(command);
     }

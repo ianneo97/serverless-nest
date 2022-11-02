@@ -3,1146 +3,1344 @@
         "ID": 1,
         "Type": "Category",
         "XI_EN_Desc": "Upper",
+        "FF_EN_Desc": "Tops",
         "TH_Desc": "ตอนบน"
     },
     {
         "ID": 2,
         "Type": "Category",
-        "XI_EN_Desc": "Jackets and Coats",
-        "TH_Desc": "แจ็กเก็ต and โค้ท"
+        "XI_EN_Desc": "Jackets & Coats",
+        "FF_EN_Desc": "",
+        "TH_Desc": "แจ็กเก็ต & โค้ท"
     },
     {
         "ID": 3,
         "Type": "Category",
-        "XI_EN_Desc": "Overalls and Dungarees",
-        "TH_Desc": "ชุดเอี๊ยม and ชุดเอี๊ยม"
+        "XI_EN_Desc": "Overalls & Dungaree",
+        "FF_EN_Desc": "Jumpsuits & Bodysuits",
+        "TH_Desc": "ชุดเอี๊ยม & ชุดเอี๊ยม"
     },
     {
         "ID": 4,
         "Type": "Category",
         "XI_EN_Desc": "Pants",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกง"
     },
     {
         "ID": 5,
         "Type": "Category",
         "XI_EN_Desc": "Skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรง"
     },
     {
         "ID": 6,
         "Type": "Category",
         "XI_EN_Desc": "Dresses",
+        "FF_EN_Desc": "",
         "TH_Desc": "เดรส"
     },
     {
         "ID": 7,
         "Type": "Category",
-        "XI_EN_Desc": "Nightwear",
+        "XI_EN_Desc": "Nightware",
+        "FF_EN_Desc": "",
         "TH_Desc": "ไนท์แวร์"
     },
     {
         "ID": 8,
         "Type": "Subcategory",
         "XI_EN_Desc": "Blouses",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อเบลาส์"
     },
     {
         "ID": 9,
         "Type": "Subcategory",
         "XI_EN_Desc": "Cardigans",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อคาร์ดิแกน"
     },
     {
         "ID": 10,
         "Type": "Subcategory",
         "XI_EN_Desc": "Polo-shirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อโปโล"
     },
     {
         "ID": 11,
         "Type": "Subcategory",
         "XI_EN_Desc": "Shell tops",
+        "FF_EN_Desc": "",
         "TH_Desc": "ท็อปส์ซูเชลล์"
     },
     {
         "ID": 12,
         "Type": "Subcategory",
         "XI_EN_Desc": "Shirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อเชิ้ต"
     },
     {
         "ID": 13,
         "Type": "Subcategory",
         "XI_EN_Desc": "Sweaters",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อกันหนาว"
     },
     {
         "ID": 14,
         "Type": "Subcategory",
         "XI_EN_Desc": "Sweatshirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อสเวตเตอร์"
     },
     {
         "ID": 15,
         "Type": "Subcategory",
         "XI_EN_Desc": "T-shirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อยืด"
     },
     {
         "ID": 16,
         "Type": "Subcategory",
         "XI_EN_Desc": "Tops",
+        "FF_EN_Desc": "",
         "TH_Desc": "ท็อปส์"
     },
     {
         "ID": 17,
         "Type": "Subcategory",
         "XI_EN_Desc": "Tunics",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อคลุม"
     },
     {
         "ID": 18,
         "Type": "Subcategory",
         "XI_EN_Desc": "Vests",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อกั๊ก"
     },
     {
         "ID": 19,
         "Type": "Subcategory",
         "XI_EN_Desc": "Baseball jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อเบสบอล"
     },
     {
         "ID": 20,
         "Type": "Subcategory",
         "XI_EN_Desc": "Biker jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อแจ็คเก็ตไบค์เกอร์"
     },
     {
         "ID": 21,
         "Type": "Subcategory",
         "XI_EN_Desc": "Bomber jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อแจ็คเก็ตบอมเบอร์"
     },
     {
         "ID": 22,
         "Type": "Subcategory",
         "XI_EN_Desc": "Causal jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "แจ็คเก็ตสาเหตุ"
     },
     {
         "ID": 23,
         "Type": "Subcategory",
         "XI_EN_Desc": "Duffle coats",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อโค้ท Duffle"
     },
     {
         "ID": 24,
         "Type": "Subcategory",
         "XI_EN_Desc": "Harrington jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อแจ็กเก็ต Harrington"
     },
     {
         "ID": 25,
         "Type": "Subcategory",
         "XI_EN_Desc": "Kimono coats",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อคลุมกิโมโน"
     },
     {
         "ID": 26,
         "Type": "Subcategory",
         "XI_EN_Desc": "Parka coats",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อคลุมพาร์ก้า"
     },
     {
         "ID": 27,
         "Type": "Subcategory",
         "XI_EN_Desc": "Peacoats",
+        "FF_EN_Desc": "",
         "TH_Desc": "พีโค้ท"
     },
     {
         "ID": 28,
         "Type": "Subcategory",
         "XI_EN_Desc": "Pilot jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อแจ็คเก็ตนักบิน"
     },
     {
         "ID": 29,
         "Type": "Subcategory",
         "XI_EN_Desc": "Racer jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อแข่ง"
     },
     {
         "ID": 30,
         "Type": "Subcategory",
-        "XI_EN_Desc": "Raincoats and ponchos",
+        "XI_EN_Desc": "Raincoats & ponchos",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อกันฝนและปอนโช"
     },
     {
         "ID": 31,
         "Type": "Subcategory",
-        "XI_EN_Desc": "Suit jackets and tuxedos",
+        "XI_EN_Desc": "Suit jackets & tuxedos",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อแจ็คเก็ตและทักซิโด้"
     },
     {
         "ID": 32,
         "Type": "Subcategory",
         "XI_EN_Desc": "Trench coats",
+        "FF_EN_Desc": "",
         "TH_Desc": "เทรนช์โค้ท"
     },
     {
         "ID": 33,
         "Type": "Subcategory",
-        "XI_EN_Desc": "Winstoppers and softshells",
-        "TH_Desc": "Winstoppers and ซอฟต์เชลล์"
+        "XI_EN_Desc": "Winstoppers & softshells",
+        "FF_EN_Desc": "",
+        "TH_Desc": "Winstoppers & ซอฟต์เชลล์"
     },
     {
         "ID": 34,
         "Type": "Subcategory",
         "XI_EN_Desc": "Winter coats",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อกันหนาว"
     },
     {
         "ID": 35,
         "Type": "Subcategory",
         "XI_EN_Desc": "Winter jackets",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อแจ็คเก็ตกันหนาว"
     },
     {
         "ID": 36,
         "Type": "Subcategory",
         "XI_EN_Desc": "Causal overalls",
+        "FF_EN_Desc": "",
         "TH_Desc": "สาเหตุ overalls"
     },
     {
         "ID": 37,
         "Type": "Subcategory",
         "XI_EN_Desc": "Elegant overalls",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดเอี๊ยมสุดหรู"
     },
     {
         "ID": 38,
         "Type": "Subcategory",
         "XI_EN_Desc": "Winter overalls",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดกันหนาว"
     },
     {
         "ID": 39,
         "Type": "Subcategory",
         "XI_EN_Desc": "Work overalls",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดทำงาน"
     },
     {
         "ID": 40,
         "Type": "Subcategory",
         "XI_EN_Desc": "Beach pants",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงชายหาด"
     },
     {
         "ID": 41,
         "Type": "Subcategory",
         "XI_EN_Desc": "Cargo",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงคาร์โก้"
     },
     {
         "ID": 42,
         "Type": "Subcategory",
         "XI_EN_Desc": "Culottes",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงชั้นใน"
     },
     {
         "ID": 43,
         "Type": "Subcategory",
         "XI_EN_Desc": "Hotpants",
+        "FF_EN_Desc": "",
         "TH_Desc": "Hotpants"
     },
     {
         "ID": 44,
         "Type": "Subcategory",
         "XI_EN_Desc": "Jeans",
+        "FF_EN_Desc": "",
         "TH_Desc": "ยีนส์"
     },
     {
         "ID": 45,
         "Type": "Subcategory",
         "XI_EN_Desc": "Leggings",
+        "FF_EN_Desc": "",
         "TH_Desc": "เลกกิ้ง"
     },
     {
         "ID": 46,
         "Type": "Subcategory",
         "XI_EN_Desc": "Suit Trousers",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงสูท"
     },
     {
         "ID": 47,
         "Type": "Subcategory",
         "XI_EN_Desc": "Sweatpants",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงขายาว"
     },
     {
         "ID": 48,
         "Type": "Subcategory",
         "XI_EN_Desc": "Swim shorts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงว่ายน้ำ"
     },
     {
         "ID": 49,
         "Type": "Subcategory",
         "XI_EN_Desc": "A-line skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงทรงเอ"
     },
     {
         "ID": 50,
         "Type": "Subcategory",
         "XI_EN_Desc": "Ballon skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงทรงบอลลูน"
     },
     {
         "ID": 51,
         "Type": "Subcategory",
         "XI_EN_Desc": "Beach skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงชายหาด"
     },
     {
         "ID": 52,
         "Type": "Subcategory",
         "XI_EN_Desc": "Mermaid skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงนางเงือก"
     },
     {
         "ID": 53,
         "Type": "Subcategory",
-        "XI_EN_Desc": "Pencil and straight skirts",
+        "XI_EN_Desc": "Pencil & straight skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงทรงดินสอและทรงตรง"
     },
     {
         "ID": 54,
         "Type": "Subcategory",
         "XI_EN_Desc": "Pleated skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงพลีท"
     },
     {
         "ID": 55,
         "Type": "Subcategory",
         "XI_EN_Desc": "Tiered skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงฉัตร"
     },
     {
         "ID": 56,
         "Type": "Subcategory",
         "XI_EN_Desc": "Tutu skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงตูตู"
     },
     {
         "ID": 57,
         "Type": "Subcategory",
         "XI_EN_Desc": "Wrap skirts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระโปรงสั้น"
     },
     {
         "ID": 58,
         "Type": "Subcategory",
         "XI_EN_Desc": "Blazer dresses",
+        "FF_EN_Desc": "",
         "TH_Desc": "เดรสเบลเซอร์"
     },
     {
         "ID": 59,
         "Type": "Subcategory",
         "XI_EN_Desc": "Blouse dresses",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อเดรส"
     },
     {
         "ID": 60,
         "Type": "Subcategory",
         "XI_EN_Desc": "Bodycon dresses",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดบอดี้คอน"
     },
     {
         "ID": 61,
         "Type": "Subcategory",
-        "XI_EN_Desc": "Fit and flare dresses",
-        "TH_Desc": "ชุดเดรส Fit and Flare"
+        "XI_EN_Desc": "Fit & flare dresses",
+        "FF_EN_Desc": "",
+        "TH_Desc": "ชุดเดรส Fit & Flare"
     },
     {
         "ID": 62,
         "Type": "Subcategory",
         "XI_EN_Desc": "Sheath dresses",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดปลอก"
     },
     {
         "ID": 63,
         "Type": "Subcategory",
         "XI_EN_Desc": "Slip dresses",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดสลิป"
     },
     {
         "ID": 64,
         "Type": "Subcategory",
         "XI_EN_Desc": "Nightdresses",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดนอน"
     },
     {
         "ID": 65,
         "Type": "Subcategory",
         "XI_EN_Desc": "Pyjamas",
+        "FF_EN_Desc": "",
         "TH_Desc": "ชุดนอน"
     },
     {
         "ID": 66,
         "Type": "Feature",
         "XI_EN_Desc": "Age",
+        "FF_EN_Desc": "",
         "TH_Desc": "อายุ"
     },
     {
         "ID": 67,
         "Type": "Feature",
         "XI_EN_Desc": "Color",
+        "FF_EN_Desc": "",
         "TH_Desc": "สี"
     },
     {
         "ID": 68,
         "Type": "Feature",
         "XI_EN_Desc": "Design",
+        "FF_EN_Desc": "",
         "TH_Desc": "ออกแบบ"
     },
     {
         "ID": 69,
         "Type": "Feature",
         "XI_EN_Desc": "Pattern",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลวดลาย"
     },
     {
         "ID": 70,
         "Type": "Feature",
         "XI_EN_Desc": "Gender",
+        "FF_EN_Desc": "",
         "TH_Desc": "เพศ"
     },
     {
         "ID": 71,
         "Type": "Feature",
         "XI_EN_Desc": "Length",
+        "FF_EN_Desc": "",
         "TH_Desc": "ความยาว"
     },
     {
         "ID": 72,
         "Type": "Feature",
         "XI_EN_Desc": "Fit",
+        "FF_EN_Desc": "",
         "TH_Desc": "รูป"
     },
     {
         "ID": 73,
         "Type": "Feature",
         "XI_EN_Desc": "Material",
+        "FF_EN_Desc": "",
         "TH_Desc": "วัสดุ"
     },
     {
         "ID": 74,
         "Type": "Feature",
         "XI_EN_Desc": "Style",
+        "FF_EN_Desc": "",
         "TH_Desc": "สไตล์"
     },
     {
         "ID": 75,
         "Type": "Feature",
         "XI_EN_Desc": "Layers",
+        "FF_EN_Desc": "",
         "TH_Desc": "เลเยอร์"
     },
     {
         "ID": 76,
         "Type": "Feature",
         "XI_EN_Desc": "Belt",
+        "FF_EN_Desc": "",
         "TH_Desc": "เข็มขัด"
     },
     {
         "ID": 77,
         "Type": "Feature",
         "XI_EN_Desc": "Closure",
+        "FF_EN_Desc": "",
         "TH_Desc": "ปิด"
     },
     {
         "ID": 78,
         "Type": "Feature",
         "XI_EN_Desc": "Fastening",
+        "FF_EN_Desc": "",
         "TH_Desc": "ยึด"
     },
     {
         "ID": 79,
         "Type": "Feature",
         "XI_EN_Desc": "Fastening type",
+        "FF_EN_Desc": "",
         "TH_Desc": "ประเภทรัด"
     },
     {
         "ID": 80,
         "Type": "Feature",
         "XI_EN_Desc": "Hood",
+        "FF_EN_Desc": "",
         "TH_Desc": "ฮูด"
     },
     {
         "ID": 81,
         "Type": "Feature",
         "XI_EN_Desc": "Neckline",
+        "FF_EN_Desc": "",
         "TH_Desc": "คอเสื้อ"
     },
     {
         "ID": 82,
         "Type": "Feature",
         "XI_EN_Desc": "Sleeves",
+        "FF_EN_Desc": "",
         "TH_Desc": "แขนเสื้อ"
     },
     {
         "ID": 83,
         "Type": "Feature",
         "XI_EN_Desc": "Cut",
+        "FF_EN_Desc": "",
         "TH_Desc": "ตัด"
     },
     {
         "ID": 84,
         "Type": "Feature",
         "XI_EN_Desc": "Lining",
+        "FF_EN_Desc": "",
         "TH_Desc": "ซับใน"
     },
     {
         "ID": 85,
         "Type": "Tag",
         "XI_EN_Desc": "Lace",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลูกไม้"
     },
     {
         "ID": 86,
         "Type": "Tag",
         "XI_EN_Desc": "Logo",
+        "FF_EN_Desc": "",
         "TH_Desc": "โลโก้"
     },
     {
         "ID": 87,
         "Type": "Tag",
         "XI_EN_Desc": "Melange",
+        "FF_EN_Desc": "",
         "TH_Desc": "Melange"
     },
     {
         "ID": 88,
         "Type": "Tag",
         "XI_EN_Desc": "Patterned",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลวดลาย"
     },
     {
         "ID": 89,
         "Type": "Tag",
         "XI_EN_Desc": "Picture",
+        "FF_EN_Desc": "",
         "TH_Desc": "รูปภาพ"
     },
     {
         "ID": 90,
         "Type": "Tag",
         "XI_EN_Desc": "Plain",
+        "FF_EN_Desc": "",
         "TH_Desc": "ที่ราบ"
     },
     {
         "ID": 91,
         "Type": "Tag",
         "XI_EN_Desc": "Shiny",
+        "FF_EN_Desc": "",
         "TH_Desc": "เงา"
     },
     {
         "ID": 92,
         "Type": "Tag",
         "XI_EN_Desc": "Text",
+        "FF_EN_Desc": "",
         "TH_Desc": "ข้อความ"
     },
     {
         "ID": 93,
         "Type": "Tag",
         "XI_EN_Desc": "Beige",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีเบจ"
     },
     {
         "ID": 94,
         "Type": "Tag",
         "XI_EN_Desc": "Black",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีดำ"
     },
     {
         "ID": 95,
         "Type": "Tag",
         "XI_EN_Desc": "Brown",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีน้ำตาล"
     },
     {
         "ID": 96,
         "Type": "Tag",
         "XI_EN_Desc": "Dark blue",
+        "FF_EN_Desc": "",
         "TH_Desc": "น้ำเงิน"
     },
     {
         "ID": 97,
         "Type": "Tag",
         "XI_EN_Desc": "Navy",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีกรมท่า"
     },
     {
         "ID": 98,
         "Type": "Tag",
         "XI_EN_Desc": "Golden",
+        "FF_EN_Desc": "",
         "TH_Desc": "โกลเด้น"
     },
     {
         "ID": 99,
         "Type": "Tag",
         "XI_EN_Desc": "Green",
+        "FF_EN_Desc": "",
         "TH_Desc": "เขียว"
     },
     {
         "ID": 100,
         "Type": "Tag",
         "XI_EN_Desc": "Grey",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีเทา"
     },
     {
         "ID": 101,
         "Type": "Tag",
         "XI_EN_Desc": "Light blue",
+        "FF_EN_Desc": "",
         "TH_Desc": "ฟ้าอ่อน"
     },
     {
         "ID": 102,
         "Type": "Tag",
         "XI_EN_Desc": "Multicolor",
+        "FF_EN_Desc": "",
         "TH_Desc": "หลากสี"
     },
     {
         "ID": 103,
         "Type": "Tag",
         "XI_EN_Desc": "Orange",
+        "FF_EN_Desc": "",
         "TH_Desc": "ส้ม"
     },
     {
         "ID": 104,
         "Type": "Tag",
         "XI_EN_Desc": "Pink",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีชมพู"
     },
     {
         "ID": 105,
         "Type": "Tag",
         "XI_EN_Desc": "Purple",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีม่วง"
     },
     {
         "ID": 106,
         "Type": "Tag",
         "XI_EN_Desc": "Violet",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีม่วง"
     },
     {
         "ID": 107,
         "Type": "Tag",
         "XI_EN_Desc": "Red",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีแดง"
     },
     {
         "ID": 108,
         "Type": "Tag",
         "XI_EN_Desc": "Silver",
+        "FF_EN_Desc": "",
         "TH_Desc": "เงิน"
     },
     {
         "ID": 109,
         "Type": "Tag",
         "XI_EN_Desc": "Turquoise",
+        "FF_EN_Desc": "",
         "TH_Desc": "เทอร์ควอยซ์"
     },
     {
         "ID": 110,
         "Type": "Tag",
         "XI_EN_Desc": "White",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีขาว"
     },
     {
         "ID": 111,
         "Type": "Tag",
         "XI_EN_Desc": "Yellow",
+        "FF_EN_Desc": "",
         "TH_Desc": "สีเหลือง"
     },
     {
         "ID": 112,
         "Type": "Tag",
         "XI_EN_Desc": "Corduroy",
+        "FF_EN_Desc": "",
         "TH_Desc": "ผ้าลูกฟูก"
     },
     {
         "ID": 113,
         "Type": "Tag",
         "XI_EN_Desc": "Cotton",
+        "FF_EN_Desc": "",
         "TH_Desc": "ฝ้าย"
     },
     {
         "ID": 114,
         "Type": "Tag",
         "XI_EN_Desc": "Denim",
+        "FF_EN_Desc": "",
         "TH_Desc": "ผ้าเดนิม"
     },
     {
         "ID": 115,
         "Type": "Tag",
         "XI_EN_Desc": "Knitwear",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อถัก"
     },
     {
         "ID": 116,
         "Type": "Tag",
         "XI_EN_Desc": "Leather",
+        "FF_EN_Desc": "",
         "TH_Desc": "หนัง"
     },
     {
         "ID": 117,
         "Type": "Tag",
         "XI_EN_Desc": "Linen",
+        "FF_EN_Desc": "",
         "TH_Desc": "ผ้าลินิน"
     },
     {
         "ID": 118,
         "Type": "Tag",
         "XI_EN_Desc": "Mesh/transparent",
+        "FF_EN_Desc": "",
         "TH_Desc": "ตาข่าย/โปร่งใส"
     },
     {
         "ID": 119,
         "Type": "Tag",
         "XI_EN_Desc": "Silk",
+        "FF_EN_Desc": "",
         "TH_Desc": "ผ้าไหม"
     },
     {
         "ID": 120,
         "Type": "Tag",
         "XI_EN_Desc": "Suede",
+        "FF_EN_Desc": "",
         "TH_Desc": "หนังนิ่ม"
     },
     {
         "ID": 121,
         "Type": "Tag",
         "XI_EN_Desc": "Tweed",
+        "FF_EN_Desc": "",
         "TH_Desc": "ทวีด"
     },
     {
         "ID": 122,
         "Type": "Tag",
         "XI_EN_Desc": "Velvet",
+        "FF_EN_Desc": "",
         "TH_Desc": "กำมะหยี่"
     },
     {
         "ID": 123,
         "Type": "Tag",
         "XI_EN_Desc": "Buttons",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลูกกระดุม"
     },
     {
         "ID": 124,
         "Type": "Tag",
         "XI_EN_Desc": "Fastening",
+        "FF_EN_Desc": "",
         "TH_Desc": "ยึด"
     },
     {
         "ID": 125,
         "Type": "Tag",
         "XI_EN_Desc": "Shorted",
+        "FF_EN_Desc": "",
         "TH_Desc": "ย่อ"
     },
     {
         "ID": 126,
         "Type": "Tag",
         "XI_EN_Desc": "Shoulder straps",
+        "FF_EN_Desc": "",
         "TH_Desc": "สายสะพาย"
     },
     {
         "ID": 127,
         "Type": "Tag",
         "XI_EN_Desc": "Spaghetti straps",
+        "FF_EN_Desc": "",
         "TH_Desc": "สายสปาเก็ตตี้"
     },
     {
         "ID": 128,
         "Type": "Tag",
         "XI_EN_Desc": "Strapless",
+        "FF_EN_Desc": "",
         "TH_Desc": "ไม่มีสายหนัง"
     },
     {
         "ID": 129,
         "Type": "Tag",
         "XI_EN_Desc": "Zipper",
+        "FF_EN_Desc": "",
         "TH_Desc": "ซิป"
     },
     {
         "ID": 130,
         "Type": "Tag",
         "XI_EN_Desc": "3/4 sleeves",
+        "FF_EN_Desc": "",
         "TH_Desc": "3/4 แขน"
     },
     {
         "ID": 131,
         "Type": "Tag",
         "XI_EN_Desc": "Long sleeves",
+        "FF_EN_Desc": "",
         "TH_Desc": "แขนยาว"
     },
     {
         "ID": 132,
         "Type": "Tag",
         "XI_EN_Desc": "One sleeve",
+        "FF_EN_Desc": "",
         "TH_Desc": "แขนเดียว"
     },
     {
         "ID": 133,
         "Type": "Tag",
         "XI_EN_Desc": "Short sleeves",
+        "FF_EN_Desc": "",
         "TH_Desc": "แขนสั้น"
     },
     {
         "ID": 134,
         "Type": "Tag",
         "XI_EN_Desc": "Sleeveless",
+        "FF_EN_Desc": "",
         "TH_Desc": "แขนกุด"
     },
     {
         "ID": 135,
         "Type": "Tag",
         "XI_EN_Desc": "Causual",
+        "FF_EN_Desc": "",
         "TH_Desc": "ไม่เป็นทางการ"
     },
     {
         "ID": 136,
         "Type": "Tag",
         "XI_EN_Desc": "Cocktail",
+        "FF_EN_Desc": "",
         "TH_Desc": "ค็อกเทล"
     },
     {
         "ID": 137,
         "Type": "Tag",
         "XI_EN_Desc": "Evening",
+        "FF_EN_Desc": "",
         "TH_Desc": "ตอนเย็น"
     },
     {
         "ID": 138,
         "Type": "Tag",
-        "XI_EN_Desc": "Sport ",
-        "TH_Desc": " กีฬา"
+        "XI_EN_Desc": "Sport",
+        "FF_EN_Desc": "",
+        "TH_Desc": "กีฬา"
     },
     {
         "ID": 139,
         "Type": "Tag",
         "XI_EN_Desc": "Wedding",
+        "FF_EN_Desc": "",
         "TH_Desc": "งานแต่งงาน"
     },
     {
         "ID": 140,
         "Type": "Tag",
         "XI_EN_Desc": "Children",
+        "FF_EN_Desc": "",
         "TH_Desc": "เด็ก"
     },
     {
         "ID": 141,
         "Type": "Tag",
         "XI_EN_Desc": "Men",
+        "FF_EN_Desc": "",
         "TH_Desc": "ผู้ชาย"
     },
     {
         "ID": 142,
         "Type": "Tag",
         "XI_EN_Desc": "Unisex",
+        "FF_EN_Desc": "",
         "TH_Desc": "Unisex"
     },
     {
         "ID": 143,
         "Type": "Tag",
         "XI_EN_Desc": "Women",
+        "FF_EN_Desc": "",
         "TH_Desc": "ผู้หญิง"
     },
     {
         "ID": 144,
         "Type": "Tag",
         "XI_EN_Desc": "Maxi",
+        "FF_EN_Desc": "",
         "TH_Desc": "แม็กซี่"
     },
     {
         "ID": 145,
         "Type": "Tag",
         "XI_EN_Desc": "Midi",
+        "FF_EN_Desc": "",
         "TH_Desc": "มิดิ"
     },
     {
         "ID": 146,
         "Type": "Tag",
         "XI_EN_Desc": "Mini",
+        "FF_EN_Desc": "",
         "TH_Desc": "มินิ"
     },
     {
         "ID": 147,
         "Type": "Tag",
         "XI_EN_Desc": "Back",
+        "FF_EN_Desc": "",
         "TH_Desc": "กลับ"
     },
     {
         "ID": 148,
         "Type": "Tag",
         "XI_EN_Desc": "Boatneck",
+        "FF_EN_Desc": "",
         "TH_Desc": "คอเรือ"
     },
     {
         "ID": 149,
         "Type": "Tag",
         "XI_EN_Desc": "Bow",
+        "FF_EN_Desc": "",
         "TH_Desc": "คันธนู"
     },
     {
         "ID": 150,
         "Type": "Tag",
         "XI_EN_Desc": "Collar",
+        "FF_EN_Desc": "",
         "TH_Desc": "ปลอกคอ"
     },
     {
         "ID": 151,
         "Type": "Tag",
         "XI_EN_Desc": "Cowl",
+        "FF_EN_Desc": "",
         "TH_Desc": "ครอบ"
     },
     {
         "ID": 152,
         "Type": "Tag",
         "XI_EN_Desc": "Crew",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลูกทีม"
     },
     {
         "ID": 153,
         "Type": "Tag",
         "XI_EN_Desc": "Hooded",
+        "FF_EN_Desc": "",
         "TH_Desc": "มีฮู้ด"
     },
     {
         "ID": 154,
         "Type": "Tag",
         "XI_EN_Desc": "Low cut",
+        "FF_EN_Desc": "",
         "TH_Desc": "คัตติ้งต่ำ"
     },
     {
         "ID": 155,
         "Type": "Tag",
         "XI_EN_Desc": "Off shoulder",
+        "FF_EN_Desc": "",
         "TH_Desc": "เว้าไหล่"
     },
     {
         "ID": 156,
         "Type": "Tag",
         "XI_EN_Desc": "round",
+        "FF_EN_Desc": "",
         "TH_Desc": "กลม"
     },
     {
         "ID": 157,
         "Type": "Tag",
         "XI_EN_Desc": "square",
+        "FF_EN_Desc": "",
         "TH_Desc": "สี่เหลี่ยม"
     },
     {
         "ID": 158,
         "Type": "Tag",
         "XI_EN_Desc": "turtlenecks",
+        "FF_EN_Desc": "",
         "TH_Desc": "เสื้อคอเต่า"
     },
     {
         "ID": 159,
         "Type": "Tag",
         "XI_EN_Desc": "v-neck",
+        "FF_EN_Desc": "",
         "TH_Desc": "คอวี"
     },
     {
         "ID": 160,
         "Type": "Tag",
         "XI_EN_Desc": "wrap",
+        "FF_EN_Desc": "",
         "TH_Desc": "ห่อ"
     },
     {
         "ID": 161,
         "Type": "Tag",
         "XI_EN_Desc": "no closure",
+        "FF_EN_Desc": "",
         "TH_Desc": "ไม่ปิด"
     },
     {
         "ID": 162,
         "Type": "Tag",
         "XI_EN_Desc": "partial closure",
+        "FF_EN_Desc": "",
         "TH_Desc": "ปิดบางส่วน"
     },
     {
         "ID": 163,
         "Type": "Tag",
         "XI_EN_Desc": "full closure",
+        "FF_EN_Desc": "",
         "TH_Desc": "ปิดเต็ม"
     },
     {
         "ID": 164,
         "Type": "Tag",
         "XI_EN_Desc": "no fastening",
+        "FF_EN_Desc": "",
         "TH_Desc": "ไม่มีการยึด"
     },
     {
         "ID": 165,
         "Type": "Tag",
-        "XI_EN_Desc": "wrap and knot",
-        "TH_Desc": "พันandผูกปม"
+        "XI_EN_Desc": "wrap & knot",
+        "FF_EN_Desc": "",
+        "TH_Desc": "พัน&ผูกปม"
     },
     {
         "ID": 166,
         "Type": "Tag",
         "XI_EN_Desc": "drawstrings",
+        "FF_EN_Desc": "",
         "TH_Desc": "สายรัด"
     },
     {
         "ID": 167,
         "Type": "Tag",
         "XI_EN_Desc": "toggles",
+        "FF_EN_Desc": "",
         "TH_Desc": "สลับ"
     },
     {
         "ID": 168,
         "Type": "Tag",
         "XI_EN_Desc": "buckle",
+        "FF_EN_Desc": "",
         "TH_Desc": "หัวเข็มขัด"
     },
     {
         "ID": 169,
         "Type": "Tag",
         "XI_EN_Desc": "double-breasted",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระดุมสองแถว"
     },
     {
         "ID": 170,
         "Type": "Tag",
         "XI_EN_Desc": "single-breasted",
+        "FF_EN_Desc": "",
         "TH_Desc": "กระดุมแถวเดียว"
     },
     {
         "ID": 171,
         "Type": "Tag",
         "XI_EN_Desc": "checked",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลายตาหมากรุก"
     },
     {
         "ID": 172,
         "Type": "Tag",
-        "XI_EN_Desc": "geometric and abstract",
+        "XI_EN_Desc": "geometric & abstract",
+        "FF_EN_Desc": "",
         "TH_Desc": "เรขาคณิตและนามธรรม"
     },
     {
         "ID": 173,
         "Type": "Tag",
         "XI_EN_Desc": "chevron",
+        "FF_EN_Desc": "",
         "TH_Desc": "บั้ง"
     },
     {
         "ID": 174,
         "Type": "Tag",
         "XI_EN_Desc": "stripe",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลาย"
     },
     {
         "ID": 175,
         "Type": "Tag",
         "XI_EN_Desc": "polka dot",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลายจุด"
     },
     {
         "ID": 176,
         "Type": "Tag",
         "XI_EN_Desc": "animalistic",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลายสัตว์"
     },
     {
         "ID": 177,
         "Type": "Tag",
         "XI_EN_Desc": "floral",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลายดอก"
     },
     {
         "ID": 178,
         "Type": "Tag",
         "XI_EN_Desc": "camouflage",
+        "FF_EN_Desc": "",
         "TH_Desc": "ลายพราง"
     },
     {
         "ID": 179,
         "Type": "Tag",
         "XI_EN_Desc": "wool",
+        "FF_EN_Desc": "",
         "TH_Desc": "ขนสัตว์"
     },
     {
         "ID": 180,
         "Type": "Tag",
         "XI_EN_Desc": "textile",
+        "FF_EN_Desc": "",
         "TH_Desc": "สิ่งทอ"
     },
     {
         "ID": 181,
         "Type": "Tag",
         "XI_EN_Desc": "fur",
+        "FF_EN_Desc": "",
         "TH_Desc": "ขนสัฅว์"
     },
     {
         "ID": 182,
         "Type": "Tag",
         "XI_EN_Desc": "synthetic",
+        "FF_EN_Desc": "",
         "TH_Desc": "สังเคราะห์"
     },
     {
         "ID": 183,
         "Type": "Tag",
         "XI_EN_Desc": "softshell",
+        "FF_EN_Desc": "",
         "TH_Desc": "ซอฟต์เชลล์"
     },
     {
         "ID": 184,
         "Type": "Tag",
         "XI_EN_Desc": "back",
+        "FF_EN_Desc": "",
         "TH_Desc": "กลับ"
     },
     {
         "ID": 185,
         "Type": "Tag",
         "XI_EN_Desc": "long pants",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงขายาว"
     },
     {
         "ID": 186,
         "Type": "Tag",
         "XI_EN_Desc": "shorts",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงขาสั้น"
     },
     {
         "ID": 187,
         "Type": "Tag",
         "XI_EN_Desc": "3/4 pants",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกง 3/4"
     },
     {
         "ID": 188,
         "Type": "Tag",
         "XI_EN_Desc": "7/8 pants",
+        "FF_EN_Desc": "",
         "TH_Desc": "กางเกงขายาว 7/8"
     },
     {
         "ID": 189,
         "Type": "Tag",
         "XI_EN_Desc": "low rise",
+        "FF_EN_Desc": "",
         "TH_Desc": "แนวราบ"
     },
     {
         "ID": 190,
         "Type": "Tag",
         "XI_EN_Desc": "mid-rise",
+        "FF_EN_Desc": "",
         "TH_Desc": "ระดับกลาง"
     },
     {
         "ID": 191,
         "Type": "Tag",
         "XI_EN_Desc": "high rise",
+        "FF_EN_Desc": "",
         "TH_Desc": "ตึกสูง"
+    },
+    {
+        "ID": 192,
+        "Type": "Tag",
+        "XI_EN_Desc": "adult",
+        "FF_EN_Desc": "",
+        "TH_Desc": "ผู้ใหญ่"
     }
 ]

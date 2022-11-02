@@ -79,3 +79,27 @@ Resources:
       AttributeDefinitions:
         - AttributeName: id 
           AttributeType: N
+        
+  XimilarTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:provider.environment.XIMILAR_TABLE}
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: id 
+          AttributeType: S
+
+  EcwidTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:provider.environment.ECWID_TABLE}
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: id 
+          AttributeType: S
