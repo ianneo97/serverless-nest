@@ -1,4 +1,5 @@
 import {
+    EcwidCategoriesResponse,
     EcwidCreateProductRequest,
     EcwidCreateProductResponse,
     EcwidUploadImageRequest,
@@ -9,6 +10,7 @@ import {
     ApiOkResponse,
     ApiParam,
     ApiQuery,
+    ApiResponse,
     ApiTags,
 } from '@nestjs/swagger';
 import { XimilarRequest } from './dto/ximilar.request';
@@ -69,6 +71,12 @@ export class IntegrationController {
         @Body() request: EcwidUploadImageRequest,
     ): Promise<void> {
         await this.service.uploadGallery(id, request);
+    }
+
+    @Get('/ecwid/categories')
+    @ApiResponse({ type: EcwidCategoriesResponse })
+    async getCategories(): Promise<EcwidCategoriesResponse> {
+        return await this.service.getCategories();
     }
 
     @Get('/translations')

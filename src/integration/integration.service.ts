@@ -1,4 +1,5 @@
 import {
+    EcwidCategoriesResponse,
     EcwidCreateProductRequest,
     EcwidCreateProductResponse,
     EcwidUploadImageRequest,
@@ -81,8 +82,13 @@ export class IntegrationService {
                 ID: item.ID.S,
                 Type: item.Type.S,
                 TH_Desc: item.TH_Desc.S,
+                FF_EN_Desc: item.FF_EN_Desc.S,
                 XI_EN_Desc: item.XI_EN_Desc.S,
             } as Translation;
         });
+    }
+
+    async getCategories(): Promise<EcwidCategoriesResponse> {
+        return this.ecwid.getCategories();
     }
 }

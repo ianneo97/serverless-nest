@@ -12,7 +12,13 @@ export class CategoryController {
 
     @Get()
     @ApiOkResponse({ type: [CategoryDto] })
+    async getSubCategories(): Promise<CategoryDto[]> {
+        return this.service.getSubCategories();
+    }
+
+    @Get('/external')
+    @ApiOkResponse({ type: [CategoryDto] })
     async getCategories(): Promise<CategoryDto[]> {
-        return this.service.getCategories();
+        return [];
     }
 }

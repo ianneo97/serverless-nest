@@ -45,6 +45,17 @@ const uploadImageSchema = extendApi(
     }),
 );
 
+const categoriesSchema = extendApi(
+    z.object({
+        items: z.array(
+            z.object({
+                id: z.number(),
+                name: z.string(),
+            }),
+        ),
+    }),
+);
+
 export class EcwidCreateProductRequest extends createZodDto(
     createSchemaRequest,
 ) {}
@@ -52,5 +63,7 @@ export class EcwidCreateProductRequest extends createZodDto(
 export class EcwidCreateProductResponse extends createZodDto(
     createSchemaResponse,
 ) {}
+
+export class EcwidCategoriesResponse extends createZodDto(categoriesSchema) {}
 
 export class EcwidUploadImageRequest extends createZodDto(uploadImageSchema) {}

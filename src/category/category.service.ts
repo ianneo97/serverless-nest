@@ -11,7 +11,7 @@ export class CategoryService {
         private readonly client: FujikoDynamoClient,
     ) {}
 
-    async getCategories(): Promise<CategoryDto[]> {
+    async getSubCategories(): Promise<CategoryDto[]> {
         const command = new ScanCommand({
             TableName: process.env.SUBCATEGORY_TABLE,
         });

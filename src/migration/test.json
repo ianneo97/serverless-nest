@@ -1,0 +1,433 @@
+[
+    {
+        "A": "ID",
+        "B": "Type",
+        "C": "XI_EN_Desc",
+        "D": "FF_EN_Desc",
+        "E": "TH_Desc"
+    },
+    { "A": 1, "B": "Category", "C": "Upper", "D": "Tops", "E": "ตอนบน" },
+    {
+        "A": 2,
+        "B": "Category",
+        "C": "Jackets and Coats",
+        "E": "แจ็กเก็ตและโค้ท"
+    },
+    {
+        "A": 3,
+        "B": "Category",
+        "C": "Overalls and Dungaree",
+        "D": "Jumpsuits & Bodysuits",
+        "E": "ชุดเอี๊ยมและชุดเอี๊ยม"
+    },
+    { "A": 4, "B": "Category", "C": "Pants", "E": "กางเกง" },
+    { "A": 5, "B": "Category", "C": "Skirts", "E": "กระโปรง" },
+    { "A": 6, "B": "Category", "C": "Dresses", "E": "เดรส" },
+    { "A": 7, "B": "Category", "C": "Nightware", "E": "ไนท์แวร์" },
+    { "A": 8, "B": "Subcategory", "C": "Blouses", "E": "เสื้อเบลาส์" },
+    { "A": 9, "B": "Subcategory", "C": "Cardigans", "E": "เสื้อคาร์ดิแกน" },
+    { "A": 10, "B": "Subcategory", "C": "Polo-shirts", "E": "เสื้อโปโล" },
+    {
+        "A": 11,
+        "B": "Subcategory",
+        "C": "Shell tops",
+        "E": "ท็อปส์ซูเชลล์"
+    },
+    { "A": 12, "B": "Subcategory", "C": "Shirts", "E": "เสื้อเชิ้ต" },
+    { "A": 13, "B": "Subcategory", "C": "Sweaters", "E": "เสื้อกันหนาว" },
+    {
+        "A": 14,
+        "B": "Subcategory",
+        "C": "Sweatshirts",
+        "E": "เสื้อสเวตเตอร์"
+    },
+    { "A": 15, "B": "Subcategory", "C": "T-shirts", "E": "เสื้อยืด" },
+    { "A": 16, "B": "Subcategory", "C": "Tops", "E": "เสื้อ" },
+    { "A": 17, "B": "Subcategory", "C": "Tunics", "E": "เสื้อคลุม" },
+    { "A": 18, "B": "Subcategory", "C": "Vests", "E": "เสื้อกั๊ก" },
+    {
+        "A": 19,
+        "B": "Subcategory",
+        "C": "Baseball jackets",
+        "E": "เสื้อเบสบอล"
+    },
+    {
+        "A": 20,
+        "B": "Subcategory",
+        "C": "Biker jackets",
+        "E": "เสื้อแจ็คเก็ตไบค์เกอร์"
+    },
+    {
+        "A": 21,
+        "B": "Subcategory",
+        "C": "Bomber jackets",
+        "E": "เสื้อแจ็คเก็ตบอมเบอร์"
+    },
+    {
+        "A": 22,
+        "B": "Subcategory",
+        "C": "casual jackets",
+        "E": "แจ็คเก็ตลำลอง"
+    },
+    {
+        "A": 23,
+        "B": "Subcategory",
+        "C": "Duffle coats",
+        "E": "เสื้อโค้ท Duffle"
+    },
+    {
+        "A": 24,
+        "B": "Subcategory",
+        "C": "Harrington jackets",
+        "E": "เสื้อแจ็กเก็ต Harrington"
+    },
+    {
+        "A": 25,
+        "B": "Subcategory",
+        "C": "Kimono coats",
+        "E": "เสื้อคลุมกิโมโน"
+    },
+    {
+        "A": 26,
+        "B": "Subcategory",
+        "C": "Parka coats",
+        "E": "เสื้อคลุมพาร์ก้า"
+    },
+    { "A": 27, "B": "Subcategory", "C": "Peacoats", "E": "พีโค้ท" },
+    {
+        "A": 28,
+        "B": "Subcategory",
+        "C": "Pilot jackets",
+        "E": "เสื้อแจ็คเก็ตนักบิน"
+    },
+    { "A": 29, "B": "Subcategory", "C": "Racer jackets", "E": "เสื้อแข่ง" },
+    {
+        "A": 30,
+        "B": "Subcategory",
+        "C": "Raincoats & ponchos",
+        "E": "เสื้อกันฝนและปอนโช"
+    },
+    {
+        "A": 31,
+        "B": "Subcategory",
+        "C": "Suit jackets & tuxedos",
+        "E": "เสื้อแจ็คเก็ตและทักซิโด้"
+    },
+    { "A": 32, "B": "Subcategory", "C": "Trench coats", "E": "เทรนช์โค้ท" },
+    {
+        "A": 33,
+        "B": "Subcategory",
+        "C": "Winstoppers & softshells",
+        "E": "Winstoppers และซอฟต์เชลล์"
+    },
+    {
+        "A": 34,
+        "B": "Subcategory",
+        "C": "Winter coats",
+        "E": "เสื้อกันหนาว"
+    },
+    {
+        "A": 35,
+        "B": "Subcategory",
+        "C": "Winter jackets",
+        "E": "เสื้อแจ็คเก็ตกันหนาว"
+    },
+    {
+        "A": 36,
+        "B": "Subcategory",
+        "C": "Casual overalls",
+        "E": "ชุดเอี๊ยมลำลอง"
+    },
+    {
+        "A": 37,
+        "B": "Subcategory",
+        "C": "Elegant overalls",
+        "E": "ชุดเอี๊ยมสุดหรู"
+    },
+    {
+        "A": 38,
+        "B": "Subcategory",
+        "C": "Winter overalls",
+        "E": "ชุดกันหนาว"
+    },
+    { "A": 39, "B": "Subcategory", "C": "Work overalls", "E": "ชุดทำงาน" },
+    {
+        "A": 40,
+        "B": "Subcategory",
+        "C": "Beach pants",
+        "E": "กางเกงชายหาด"
+    },
+    { "A": 41, "B": "Subcategory", "C": "Cargo", "E": "กางเกงคาร์โก้" },
+    { "A": 42, "B": "Subcategory", "C": "Culottes", "E": "กางเกงชั้นใน" },
+    { "A": 43, "B": "Subcategory", "C": "Hotpants", "E": "กางเกงรัดรูป" },
+    { "A": 44, "B": "Subcategory", "C": "Jeans", "E": "ยีนส์" },
+    { "A": 45, "B": "Subcategory", "C": "Leggings", "E": "เลกกิ้ง" },
+    { "A": 46, "B": "Subcategory", "C": "Suit Trousers", "E": "กางเกงสูท" },
+    { "A": 47, "B": "Subcategory", "C": "Sweatpants", "E": "กางเกงขายาว" },
+    {
+        "A": 48,
+        "B": "Subcategory",
+        "C": "Swim shorts",
+        "E": "กางเกงว่ายน้ำ"
+    },
+    {
+        "A": 49,
+        "B": "Subcategory",
+        "C": "A-line skirts",
+        "E": "กระโปรงทรงเอ"
+    },
+    {
+        "A": 50,
+        "B": "Subcategory",
+        "C": "Ballon skirts",
+        "E": "กระโปรงทรงบอลลูน"
+    },
+    {
+        "A": 51,
+        "B": "Subcategory",
+        "C": "Beach skirts",
+        "E": "กระโปรงชายหาด"
+    },
+    {
+        "A": 52,
+        "B": "Subcategory",
+        "C": "Mermaid skirts",
+        "E": "กระโปรงนางเงือก"
+    },
+    {
+        "A": 53,
+        "B": "Subcategory",
+        "C": "Pencil & straight skirts",
+        "E": "กระโปรงทรงดินสอและทรงตรง"
+    },
+    {
+        "A": 54,
+        "B": "Subcategory",
+        "C": "Pleated skirts",
+        "E": "กระโปรงพลีท"
+    },
+    {
+        "A": 55,
+        "B": "Subcategory",
+        "C": "Tiered skirts",
+        "E": "กระโปรงฉัตร"
+    },
+    { "A": 56, "B": "Subcategory", "C": "Tutu skirts", "E": "กระโปรงตูตู" },
+    { "A": 57, "B": "Subcategory", "C": "Wrap skirts", "E": "กระโปรงสั้น" },
+    {
+        "A": 58,
+        "B": "Subcategory",
+        "C": "Blazer dresses",
+        "E": "เดรสเบลเซอร์"
+    },
+    {
+        "A": 59,
+        "B": "Subcategory",
+        "C": "Blouse dresses",
+        "E": "เสื้อเดรส"
+    },
+    {
+        "A": 60,
+        "B": "Subcategory",
+        "C": "Bodycon dresses",
+        "E": "ชุดบอดี้คอน"
+    },
+    {
+        "A": 61,
+        "B": "Subcategory",
+        "C": "Fit & flare dresses",
+        "E": "ชุดเดรส Fit & Flare"
+    },
+    { "A": 62, "B": "Subcategory", "C": "Sheath dresses", "E": "ชุดปลอก" },
+    { "A": 63, "B": "Subcategory", "C": "Slip dresses", "E": "ชุดสลิป" },
+    { "A": 64, "B": "Subcategory", "C": "Nightdresses", "E": "ชุดนอน" },
+    { "A": 65, "B": "Subcategory", "C": "Pyjamas", "E": "ชุดนอน" },
+    { "A": 66, "B": "Feature", "C": "Age", "E": "อายุ" },
+    { "A": 67, "B": "Feature", "C": "Color", "E": "สี" },
+    { "A": 68, "B": "Feature", "C": "Design", "E": "ออกแบบ" },
+    { "A": 69, "B": "Feature", "C": "Pattern", "E": "ลวดลาย" },
+    { "A": 70, "B": "Feature", "C": "Gender", "E": "เพศ" },
+    { "A": 71, "B": "Feature", "C": "Length", "E": "ความยาว" },
+    { "A": 72, "B": "Feature", "C": "Fit", "E": "รูป" },
+    { "A": 73, "B": "Feature", "C": "Material", "E": "วัสดุ" },
+    { "A": 74, "B": "Feature", "C": "Style", "E": "สไตล์" },
+    { "A": 75, "B": "Feature", "C": "Layers", "E": "เลเยอร์" },
+    { "A": 76, "B": "Feature", "C": "Belt", "E": "เข็มขัด" },
+    { "A": 77, "B": "Feature", "C": "Closure", "E": "ปิด" },
+    { "A": 78, "B": "Feature", "C": "Fastening", "E": "ยึด" },
+    { "A": 79, "B": "Feature", "C": "Fastening type", "E": "ประเภทรัด" },
+    { "A": 80, "B": "Feature", "C": "Hood", "E": "ฮูด" },
+    { "A": 81, "B": "Feature", "C": "Neckline", "E": "คอเสื้อ" },
+    { "A": 82, "B": "Feature", "C": "Sleeves", "E": "แขนเสื้อ" },
+    { "A": 83, "B": "Feature", "C": "Cut", "E": "ตัด" },
+    { "A": 84, "B": "Feature", "C": "Lining", "E": "ซับใน" },
+    { "A": 85, "B": "Tag", "C": "Lace", "E": "ลูกไม้" },
+    { "A": 86, "B": "Tag", "C": "Logo", "E": "โลโก้" },
+    { "A": 87, "B": "Tag", "C": "Melange", "E": "วัตถุผสม" },
+    { "A": 88, "B": "Tag", "C": "Patterned", "E": "ลวดลาย" },
+    { "A": 89, "B": "Tag", "C": "Picture", "E": "รูปภาพ" },
+    { "A": 90, "B": "Tag", "C": "Plain", "E": "ที่ราบ" },
+    { "A": 91, "B": "Tag", "C": "Shiny", "E": "เงา" },
+    { "A": 92, "B": "Tag", "C": "Text", "E": "ข้อความ" },
+    { "A": 93, "B": "Tag", "C": "Beige", "E": "สีเบจ" },
+    { "A": 94, "B": "Tag", "C": "Black", "E": "สีดำ" },
+    { "A": 95, "B": "Tag", "C": "Brown", "E": "สีน้ำตาล" },
+    { "A": 96, "B": "Tag", "C": "Dark blue", "E": "น้ำเงิน" },
+    { "A": 97, "B": "Tag", "C": "Navy", "E": "สีกรมท่า" },
+    { "A": 98, "B": "Tag", "C": "Golden", "E": "โกลเด้น" },
+    { "A": 99, "B": "Tag", "C": "Green", "E": "เขียว" },
+    { "A": 100, "B": "Tag", "C": "Grey", "E": "สีเทา" },
+    { "A": 101, "B": "Tag", "C": "Light blue", "E": "ฟ้าอ่อน" },
+    { "A": 102, "B": "Tag", "C": "Multicolor", "E": "หลากสี" },
+    { "A": 103, "B": "Tag", "C": "Orange", "E": "ส้ม" },
+    { "A": 104, "B": "Tag", "C": "Pink", "E": "สีชมพู" },
+    { "A": 105, "B": "Tag", "C": "Purple", "E": "สีม่วง" },
+    { "A": 106, "B": "Tag", "C": "Violet", "E": "สีม่วง" },
+    { "A": 107, "B": "Tag", "C": "Red", "E": "สีแดง" },
+    { "A": 108, "B": "Tag", "C": "Silver", "E": "เงิน" },
+    { "A": 109, "B": "Tag", "C": "Turquoise", "E": "เทอร์ควอยซ์" },
+    { "A": 110, "B": "Tag", "C": "White", "E": "สีขาว" },
+    { "A": 111, "B": "Tag", "C": "Yellow", "E": "สีเหลือง" },
+    { "A": 112, "B": "Tag", "C": "Corduroy", "E": "ผ้าลูกฟูก" },
+    { "A": 113, "B": "Tag", "C": "Cotton", "E": "ฝ้าย" },
+    { "A": 114, "B": "Tag", "C": "Denim", "E": "ผ้าเดนิม" },
+    { "A": 115, "B": "Tag", "C": "Knitwear", "E": "เสื้อถัก" },
+    { "A": 116, "B": "Tag", "C": "Leather", "E": "หนัง" },
+    { "A": 117, "B": "Tag", "C": "Linen", "E": "ผ้าลินิน" },
+    {
+        "A": 118,
+        "B": "Tag",
+        "C": "Mesh/transparent",
+        "E": "ตาข่าย/โปร่งใส"
+    },
+    { "A": 119, "B": "Tag", "C": "Silk", "E": "ผ้าไหม" },
+    { "A": 120, "B": "Tag", "C": "Suede", "E": "หนังนิ่ม" },
+    { "A": 121, "B": "Tag", "C": "Tweed", "E": "ทวีด" },
+    { "A": 122, "B": "Tag", "C": "Velvet", "E": "กำมะหยี่" },
+    { "A": 123, "B": "Tag", "C": "Buttons", "E": "ลูกกระดุม" },
+    { "A": 124, "B": "Tag", "C": "Fastening", "E": "ยึด" },
+    { "A": 125, "B": "Tag", "C": "Shorted", "E": "ย่อ" },
+    { "A": 126, "B": "Tag", "C": "Shoulder straps", "E": "สายสะพาย" },
+    { "A": 127, "B": "Tag", "C": "Spaghetti straps", "E": "สายสปาเก็ตตี้" },
+    { "A": 128, "B": "Tag", "C": "Strapless", "E": "ไม่มีสายหนัง" },
+    { "A": 129, "B": "Tag", "C": "Zipper", "E": "ซิป" },
+    { "A": 130, "B": "Tag", "C": "3/4 sleeves", "E": "3/4 แขน" },
+    { "A": 131, "B": "Tag", "C": "Long sleeves", "E": "แขนยาว" },
+    { "A": 132, "B": "Tag", "C": "One sleeve", "E": "แขนเดียว" },
+    { "A": 133, "B": "Tag", "C": "Short sleeves", "E": "แขนสั้น" },
+    { "A": 134, "B": "Tag", "C": "Sleeveless", "E": "แขนกุด" },
+    { "A": 135, "B": "Tag", "C": "Causual", "E": "ไม่เป็นทางการ" },
+    { "A": 136, "B": "Tag", "C": "Cocktail", "E": "ค็อกเทล" },
+    { "A": 137, "B": "Tag", "C": "Evening", "E": "ตอนเย็น" },
+    { "A": 138, "B": "Tag", "C": "Sport", "E": "กีฬา" },
+    { "A": 139, "B": "Tag", "C": "Wedding", "E": "งานแต่งงาน" },
+    { "A": 140, "B": "Tag", "C": "Children", "E": "เด็ก" },
+    { "A": 141, "B": "Tag", "C": "Men", "E": "ผู้ชาย" },
+    { "A": 142, "B": "Tag", "C": "Unisex", "E": "เหมาะกับชายและหญิง" },
+    { "A": 143, "B": "Tag", "C": "Women", "E": "ผู้หญิง" },
+    { "A": 144, "B": "Tag", "C": "Maxi", "E": "แม็กซี่" },
+    { "A": 145, "B": "Tag", "C": "Midi", "E": "มิดิ" },
+    { "A": 146, "B": "Tag", "C": "Mini", "E": "มินิ" },
+    { "A": 147, "B": "Tag", "C": "Back", "E": "กลับ" },
+    { "A": 148, "B": "Tag", "C": "Boatneck", "E": "คอเรือ" },
+    { "A": 149, "B": "Tag", "C": "bow", "E": "โบว์" },
+    { "A": 150, "B": "Tag", "C": "Collar", "E": "ปลอกคอ" },
+    { "A": 151, "B": "Tag", "C": "Cowl", "E": "คอปก" },
+    { "A": 152, "B": "Tag", "C": "Crew", "E": "คอกลม" },
+    { "A": 153, "B": "Tag", "C": "Hooded", "E": "มีฮู้ด" },
+    { "A": 154, "B": "Tag", "C": "Low cut", "E": "คอต่ำ" },
+    { "A": 155, "B": "Tag", "C": "Off shoulder", "E": "เว้าไหล่" },
+    { "A": 156, "B": "Tag", "C": "round", "E": "คอกลม" },
+    { "A": 157, "B": "Tag", "C": "square", "E": "คอสี่เหลี่ยม" },
+    { "A": 158, "B": "Tag", "C": "turtlenecks", "E": "คอเต่า" },
+    { "A": 159, "B": "Tag", "C": "v-neck", "E": "คอวี" },
+    { "A": 160, "B": "Tag", "C": "wrap", "E": "ห่อ" },
+    { "A": 161, "B": "Tag", "C": "no closure", "E": "ไม่ปิด" },
+    { "A": 162, "B": "Tag", "C": "partial closure", "E": "ปิดบางส่วน" },
+    { "A": 163, "B": "Tag", "C": "full closure", "E": "ปิดเต็ม" },
+    { "A": 164, "B": "Tag", "C": "no fastening", "E": "ไม่มีการยึด" },
+    { "A": 165, "B": "Tag", "C": "wrap & knot", "E": "พัน & ผูกปม" },
+    { "A": 166, "B": "Tag", "C": "drawstrings", "E": "สายรัด" },
+    { "A": 167, "B": "Tag", "C": "toggles", "E": "สลับ" },
+    { "A": 168, "B": "Tag", "C": "buckle", "E": "หัวเข็มขัด" },
+    { "A": 169, "B": "Tag", "C": "double-breasted", "E": "กระดุมสองแถว" },
+    { "A": 170, "B": "Tag", "C": "single-breasted", "E": "กระดุมแถวเดียว" },
+    { "A": 171, "B": "Tag", "C": "checked", "E": "ลายตาหมากรุก" },
+    {
+        "A": 172,
+        "B": "Tag",
+        "C": "geometric & abstract",
+        "E": "เรขาคณิตและนามธรรม"
+    },
+    { "A": 173, "B": "Tag", "C": "chevron", "E": "บั้ง" },
+    { "A": 174, "B": "Tag", "C": "stripe", "E": "ลาย" },
+    { "A": 175, "B": "Tag", "C": "polka dot", "E": "ลายจุด" },
+    { "A": 176, "B": "Tag", "C": "animalistic", "E": "ลายสัตว์" },
+    { "A": 177, "B": "Tag", "C": "floral", "E": "ลายดอก" },
+    { "A": 178, "B": "Tag", "C": "camouflage", "E": "ลายพราง" },
+    { "A": 179, "B": "Tag", "C": "wool", "E": "ขนสัตว์" },
+    { "A": 180, "B": "Tag", "C": "textile", "E": "สิ่งทอ" },
+    { "A": 181, "B": "Tag", "C": "fur", "E": "ขนสัฅว์" },
+    { "A": 182, "B": "Tag", "C": "synthetic", "E": "สังเคราะห์" },
+    { "A": 183, "B": "Tag", "C": "softshell", "E": "ซอฟต์เชลล์" },
+    { "A": 184, "B": "Tag", "C": "back", "E": "กลับ" },
+    { "A": 185, "B": "Tag", "C": "long pants", "E": "กางเกงขายาว" },
+    { "A": 186, "B": "Tag", "C": "shorts", "E": "กางเกงขาสั้น" },
+    { "A": 187, "B": "Tag", "C": "3/4 pants", "E": "กางเกง 3/4" },
+    { "A": 188, "B": "Tag", "C": "7/8 pants", "E": "กางเกงขายาว 7/8" },
+    { "A": 189, "B": "Tag", "C": "low rise", "E": "แนวราบ" },
+    { "A": 190, "B": "Tag", "C": "mid-rise", "E": "ระดับกลาง" },
+    { "A": 191, "B": "Tag", "C": "high rise", "E": "ตึกสูง" },
+    { "A": 192, "B": "Tag", "C": "adult", "E": "ผู้ใหญ่" },
+    { "A": 193, "B": "Tag", "C": "elegant", "E": "สง่างาม" },
+    { "A": 194, "B": "Feature", "C": "no belt", "E": "ไม่มีเข็มขัด" },
+    { "A": 195, "B": "Tag", "C": "smart causal", "E": "สมาร์ทแคชชวล" },
+    { "A": 196, "B": "Tag", "C": "wrap top", "E": "เสื้อห่อ" },
+    {
+        "A": 197,
+        "B": "Tag",
+        "C": "dark blue and navy",
+        "E": "น้ำเงินเข้มและน้ำเงิน"
+    },
+    {
+        "A": 198,
+        "B": "Tag",
+        "C": "purple and violet",
+        "E": "สีม่วงและสีม่วง"
+    },
+    {
+        "A": 199,
+        "B": "Subcategory",
+        "C": "bardot tops",
+        "E": "เสื้อบาร์ดอท"
+    },
+    { "A": 200, "B": "Subcategory", "C": "crop tops", "E": "เสื้อครอป" },
+    {
+        "A": 201,
+        "B": "Subcategory",
+        "C": "cropped blouses",
+        "E": "เสื้อครอป"
+    },
+    { "A": 202, "B": "Subcategory", "C": "demin shirt", "E": "เสื้อเดมิน" },
+    { "A": 203, "B": "Subcategory", "C": "hoodies", "E": "เสื้อฮู้ด" },
+    { "A": 204, "B": "Subcategory", "C": "knitted tops", "E": "เสื้อถัก" },
+    {
+        "A": 205,
+        "B": "Subcategory",
+        "C": "knitted vests",
+        "E": "เสื้อกั๊กถัก"
+    },
+    {
+        "A": 206,
+        "B": "Subcategory",
+        "C": "sweatershirts",
+        "E": "เสื้อกันหนาว"
+    },
+    { "A": 207, "B": "Subcategory", "C": "tank tops", "E": "เสื้อกล้าม" },
+    {
+        "A": 208,
+        "B": "Subcategory",
+        "C": "transparent tops",
+        "E": "เสื้อโปร่งใส"
+    }
+]

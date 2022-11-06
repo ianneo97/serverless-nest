@@ -7,6 +7,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
+    EcwidCategoriesResponse,
     EcwidCreateProductRequest,
     EcwidCreateProductResponse,
     EcwidUploadImageRequest,
@@ -77,5 +78,14 @@ export class EcwidClient {
         } catch (err) {
             throw new GalleryImageFailedException();
         }
+    }
+
+    async getCategories(): Promise<EcwidCategoriesResponse> {
+        const url = `${this.baseUrl}/categories?token=${this.secret}`;
+
+        const response =
+            await this.service.axiosRef.get<EcwidCategoriesResponse>(url);
+
+        return Object.assign(new EcwidCategoriesResponse(), response.data);
     }
 }

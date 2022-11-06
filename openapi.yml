@@ -207,6 +207,18 @@ paths:
         "201":
           description: ""
       tags: *a2
+  /api/integration/ecwid/categories:
+    get:
+      operationId: IntegrationController_getCategories
+      parameters: []
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EcwidCategoriesResponse"
+      tags: *a2
   /api/integration/translations:
     get:
       operationId: IntegrationController_getTranslations
@@ -216,6 +228,22 @@ paths:
           description: ""
       tags: *a2
   /api/categories:
+    get:
+      operationId: CategoryController_getSubCategories
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CategoryDto"
+      tags:
+        &a3
+        - Category Module
+  /api/categories/external:
     get:
       operationId: CategoryController_getCategories
       parameters: []
@@ -228,8 +256,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/CategoryDto"
-      tags:
-        - Category Module
+      tags: *a3
   /api/brands:
     get:
       operationId: BrandController_getBrands
@@ -792,6 +819,23 @@ components:
         height:
           type: number
       required: []
+    EcwidCategoriesResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+            required:
+              - id
+              - name
+      required:
+        - items
     CategoryDto:
       type: object
       properties:
