@@ -1,3 +1,4 @@
+import { XimilarModule } from './ximilar/ximilar.module';
 import { IntegrationModule } from './integration/integration.module';
 import { ZodValidationPipe } from '@anatine/zod-nestjs';
 import { Module } from '@nestjs/common';
@@ -22,6 +23,7 @@ import { RatingModule } from './rating/rating.module';
         CategoryModule,
         BrandModule,
         RatingModule,
+        XimilarModule,
     ],
     controllers: [],
     providers: [{ provide: APP_PIPE, useClass: ZodValidationPipe }],

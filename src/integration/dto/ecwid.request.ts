@@ -31,6 +31,7 @@ const createSchemaRequest = extendApi(
         showOnFrontpage: z.number().optional(),
         discountsAllowed: z.boolean().optional(),
         nameYourPriceEnabled: z.boolean().optional(),
+        categoryIds: z.array(z.number()).optional(),
     }),
 );
 

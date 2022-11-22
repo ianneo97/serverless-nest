@@ -33,7 +33,9 @@ export class IntegrationService {
     ): Promise<EcwidCreateProductResponse> {
         this.logger.log({ message: 'Creating ECWID Product', request });
 
-        const product = await this.ecwid.addProduct(request);
+        const product = await this.ecwid.addProduct({
+            ...request,
+        });
 
         const command = new UpdateItemCommand({
             TableName: process.env.SKU_DYNAMODB_TABLE,

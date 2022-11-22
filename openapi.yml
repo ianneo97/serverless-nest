@@ -281,6 +281,43 @@ paths:
                   $ref: "#/components/schemas/RatingDto"
       tags:
         - Rating Module
+  /api/ximilar:
+    post:
+      operationId: XimilarController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/CreateXimilarDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CreateXimilarDto"
+      tags:
+        &a4
+        - Ximilar Module
+    get:
+      operationId: XimilarController_list
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ListXimilarDto"
+      tags: *a4
 info:
   title: Swagger API
   description: Swagger APIs for application
@@ -793,6 +830,10 @@ components:
           type: boolean
         nameYourPriceEnabled:
           type: boolean
+        categoryIds:
+          type: array
+          items:
+            type: number
       required:
         - name
         - sku
@@ -865,3 +906,26 @@ components:
           type: number
       required:
         - id
+    CreateXimilarDto:
+      type: object
+      properties:
+        sku_id:
+          default: ""
+          type: string
+        differences:
+          default: ""
+          type: string
+      required: []
+    ListXimilarDto:
+      type: object
+      properties:
+        id:
+          default: ""
+          type: string
+        sku_id:
+          default: ""
+          type: string
+        differences:
+          default: ""
+          type: string
+      required: []
